@@ -233,7 +233,6 @@ function genStyleUtils<
           return [options.resetStyle === false ? null : commonStyle, styleInterpolation].filter(Boolean)
         },
       )
-
       const cssVarHook = genCSSVarRegister(
         component,
         getDefaultToken,
@@ -268,24 +267,24 @@ function genStyleUtils<
       getDefaultToken,
       options,
     )
-
-    const cssVarHook = genCSSVarRegister(
-      Array.isArray(component) ? component[0] : component,
-      getDefaultToken,
-      {
-        unitless: options?.unitless,
-        ignore: options?.ignore,
-        deprecatedTokens: options?.deprecatedTokens,
-        injectStyle: options?.injectStyle,
-        prefixToken: (key: string) => `${String(Array.isArray(component) ? component[0] : component)}${key.slice(0, 1).toUpperCase()}${key.slice(1)}`,
-      },
-    )
+    // fix: fix cssvar generate twice
+    // const cssVarHook = genCSSVarRegister(
+    //   Array.isArray(component) ? component[0] : component,
+    //   getDefaultToken,
+    //   {
+    //     unitless: options?.unitless,
+    //     ignore: options?.ignore,
+    //     deprecatedTokens: options?.deprecatedTokens,
+    //     injectStyle: options?.injectStyle,
+    //     prefixToken: (key: string) => `${String(Array.isArray(component) ? component[0] : component)}${key.slice(0, 1).toUpperCase()}${key.slice(1)}`,
+    //   },
+    // )
 
     return (prefixCls: string, rootCls: string = prefixCls) => {
       const [wrapSSR, hashId, cssVarCls] = useStyle(prefixCls, rootCls)
-      const [wrapCSSVar] = cssVarHook(rootCls)
+      // const [wrapCSSVar] = cssVarHook(rootCls)
 
-      const wrapAll = (node: any) => wrapCSSVar(wrapSSR(node))
+      const wrapAll = (node: any) => wrapSSR(node)
 
       return [wrapAll, hashId, cssVarCls] as UseComponentStyleResult
     }

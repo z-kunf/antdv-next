@@ -1,12 +1,12 @@
-import type { App, SlotsType } from 'vue'
-import type { ConfigConsumerProps, ThemeConfig } from './context'
+import type { App, Plugin, SlotsType, VNodeChild } from 'vue'
+import type { ConfigConsumerProps, Theme, ThemeConfig } from './context'
 import type { ConfigProviderEmits, ConfigProviderProps, ConfigProviderSlots } from './define'
 import { createTheme } from '@antdv-next/cssinjs'
 import defu from 'defu'
 import { computed, defineComponent } from 'vue'
 import { defaultTheme, DesignTokenProvider } from '../theme/context.ts'
 import defaultSeedToken from '../theme/themes/seed'
-import { defaultIconPrefixCls, useConfig, useConfigProvider } from './context'
+import { defaultIconPrefixCls, defaultPrefixCls, useConfig, useConfigProvider } from './context'
 import { useTheme } from './hooks/useTheme.ts'
 import { SizeProvider } from './SizeContext.ts'
 import useStyle from './style'
@@ -37,6 +37,42 @@ const providerDefaultProps: any = {
   componentDisabled: undefined,
 }
 
+type holderRenderType = (children: VNodeChild) => VNodeChild
+
+let globalPrefixCls: string
+let globalIconPrefixCls: string
+let globalTheme: Theme | ThemeConfig
+let globalHolderRender: holderRenderType | undefined
+
+export interface GlobalConfigProps {
+  prefixCls?: string
+  iconPrefixCls?: string
+  theme?: Theme | ThemeConfig
+  holderRender?: holderRenderType
+}
+function getGlobalPrefixCls() {
+  return globalPrefixCls || defaultPrefixCls
+}
+
+function getGlobalIconPrefixCls() {
+  return globalIconPrefixCls || defaultIconPrefixCls
+}
+
+function setGlobalConfig(props: GlobalConfigProps) {
+  const { prefixCls, iconPrefixCls, theme, holderRender } = props
+  if (prefixCls !== undefined) {
+    globalPrefixCls = prefixCls
+  }
+  if (iconPrefixCls !== undefined) {
+    globalIconPrefixCls = iconPrefixCls
+  }
+  if ('holderRender' in props) {
+    globalHolderRender = holderRender
+  }
+  if (theme) {
+    globalTheme = theme
+  }
+}
 const ProviderChildren = defineComponent<
   ProviderChildrenProps,
   ConfigProviderEmits,
@@ -182,8 +218,35 @@ const ConfigProvider = defineComponent<
   },
 )
 
+;(ConfigProvider as any).config = setGlobalConfig
+
 ;(ConfigProvider as any).install = (app: App) => {
   app.component(ConfigProvider.name, ConfigProvider)
 }
 
-export default ConfigProvider
+export default ConfigProvider as typeof ConfigProvider & Plugin & {
+  config: typeof setGlobalConfig
+}
+
+export function globalConfig() {
+  return {
+    getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
+      if (customizePrefixCls) {
+        return customizePrefixCls
+      }
+      return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls()
+    },
+    getIconPrefixCls: getGlobalIconPrefixCls,
+    getRootPrefixCls: () => {
+      // If Global prefixCls provided, use this
+      if (globalPrefixCls) {
+        return globalPrefixCls
+      }
+
+      // Fallback to default prefixCls
+      return getGlobalPrefixCls()
+    },
+    getTheme: () => globalTheme,
+    holderRender: globalHolderRender,
+  }
+}

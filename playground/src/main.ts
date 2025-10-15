@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import { router } from '@/routes'
 import App from './App.vue'
+import 'antdv-next/style/reset.css'
 
 const app = createApp(App)
 app.use(router)

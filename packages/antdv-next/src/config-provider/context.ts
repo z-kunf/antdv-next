@@ -24,6 +24,10 @@ export type DirectionType = 'ltr' | 'rtl' | undefined
 
 export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken>
 
+export interface ComponentBaseProps {
+  rootClass?: string
+}
+
 type ComponentsConfig = {
   [key in keyof OverrideToken]?: OverrideToken[key] & {
     algorithm?: boolean | MappingAlgorithm | MappingAlgorithm[]

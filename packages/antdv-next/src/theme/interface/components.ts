@@ -1,6 +1,6 @@
 // import type { ComponentToken as WaveToken } from '../../_util/wave/style';
 import type { ComponentToken as AffixComponentToken } from '../../affix/style'
-// import type { ComponentToken as AlertComponentToken } from '../../alert/style';
+import type { ComponentToken as AlertComponentToken } from '../../alert/style'
 // import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
 // import type { ComponentToken as AppComponentToken } from '../../app/style';
 // import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
@@ -67,7 +67,7 @@ import type { ComponentToken as AffixComponentToken } from '../../affix/style'
 
 export interface ComponentTokenMap {
   Affix?: AffixComponentToken
-  // Alert?: AlertComponentToken;
+  Alert?: AlertComponentToken
   // Anchor?: AnchorComponentToken;
   // Avatar?: AvatarComponentToken;
   // BackTop?: BackTopComponentToken;

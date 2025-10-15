@@ -12,7 +12,10 @@ export { default as defaultTheme } from './themes/default/theme'
 export const defaultConfig = {
   token: defaultSeedToken,
   override: { override: defaultSeedToken },
-  hashed: true,
+  hashed: false,
+  cssVar: {
+    key: 'ant-css-var',
+  },
 }
 
 export type ComponentsToken = {
