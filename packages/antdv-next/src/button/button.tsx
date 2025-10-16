@@ -247,22 +247,6 @@ const InternalCompoundedButton = defineComponent<
         ? spaceChildren(children, needInserted && mergedInsertSpace.value)
         : null
 
-      const attrClass = (attrs as any)?.class
-      const attrStyle = (attrs as any)?.style
-      const attrHref = (attrs as any)?.href
-      const attrType = (attrs as any)?.type
-      const attrTabIndex = (attrs as any)?.tabindex ?? (attrs as any)?.tabIndex
-
-      const restAttrs = { ...attrs } as Record<string, any>
-      delete restAttrs.class
-      delete restAttrs.style
-      delete restAttrs.onClick
-      delete restAttrs.href
-      delete restAttrs.type
-      delete restAttrs.tabindex
-      delete restAttrs.tabIndex
-      delete restAttrs.disabled
-
       const cls = classNames(
         prefixCls.value,
         hashId,
@@ -287,7 +271,6 @@ const InternalCompoundedButton = defineComponent<
         compactItemClassnames.value,
         componentCtx.value.class,
         props.rootClass,
-        attrClass,
       )
       const iconClasses = classNames(componentCtx.value.classes?.icon, props.classes?.icon)
       const iconStyle = [componentCtx.value.styles?.icon, props.styles?.icon]
@@ -324,23 +307,19 @@ const InternalCompoundedButton = defineComponent<
               )
           )
 
-      const mergedStyle = [componentCtx.value.style, attrStyle]
-      const mergedHref = props.href ?? attrHref
-      const htmlType = props.htmlType ?? attrType ?? 'button'
+      const mergedStyle = [componentCtx.value.style]
+      const mergedHref = props.href
+      const htmlType = props.htmlType ?? 'button'
 
       if (mergedHref !== undefined) {
-        const anchorAttrs = { ...restAttrs }
-        const resolvedTabIndex = mergedDisabled.value ? -1 : (attrTabIndex ?? 0)
-
         return wrapCSSVar(
           <a
-            {...anchorAttrs}
+            {...attrs}
             ref={buttonRef as any}
             class={[cls, { [`${prefixCls.value}-disabled`]: mergedDisabled.value }]}
             style={mergedStyle}
             href={mergedDisabled.value ? undefined : mergedHref}
             onClick={handleClick}
-            tabindex={resolvedTabIndex}
             aria-disabled={mergedDisabled.value}
           >
             {iconNode}
@@ -349,14 +328,9 @@ const InternalCompoundedButton = defineComponent<
         )
       }
 
-      const buttonAttrs = { ...restAttrs }
-      if (attrTabIndex !== undefined) {
-        buttonAttrs.tabindex = attrTabIndex
-      }
-
       let buttonNodes = (
         <button
-          {...buttonAttrs}
+          {...attrs}
           ref={buttonRef as any}
           type={htmlType}
           class={cls}
