@@ -17,7 +17,7 @@ import type { ComponentToken as ButtonComponentToken } from '../../button/style'
 // import type { ComponentToken as ColorPickerComponentToken } from '../../color-picker/style';
 // import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 // import type { ComponentToken as DescriptionsComponentToken } from '../../descriptions/style';
-// import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as DividerComponentToken } from '../../divider/style'
 // import type { ComponentToken as DrawerComponentToken } from '../../drawer/style';
 // import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
 // import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
@@ -82,7 +82,7 @@ export interface ComponentTokenMap {
   // Collapse?: CollapseComponentToken;
   // DatePicker?: DatePickerComponentToken;
   // Descriptions?: DescriptionsComponentToken;
-  // Divider?: DividerComponentToken;
+  Divider?: DividerComponentToken
   // Drawer?: DrawerComponentToken;
   // Dropdown?: DropdownComponentToken;
   // Empty?: EmptyComponentToken;

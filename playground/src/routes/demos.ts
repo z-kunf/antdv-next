@@ -18,3 +18,5 @@ export function generateDemoRoutes() {
   }
   return routes
 }
+
+export default generateDemoRoutes()

@@ -5,6 +5,7 @@ import { router } from '@/routes'
 import App from './App.vue'
 import 'antdv-next/style/reset.css'
 import 'uno.css'
+import './assets/styles/common.css'
 
 const app = createApp(App)
 app.use(router)

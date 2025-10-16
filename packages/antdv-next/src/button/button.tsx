@@ -5,6 +5,7 @@ import type { SizeType } from '../config-provider/SizeContext'
 import type { ButtonColorType, ButtonHTMLType, ButtonShape, ButtonType, ButtonVariantType } from './buttonHelper.tsx'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
+import { omit } from 'es-toolkit'
 import { toArray } from 'es-toolkit/compat'
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, shallowRef, watch } from 'vue'
 import { getSlotPropFn } from '../_util/tools.ts'
@@ -314,10 +315,10 @@ const InternalCompoundedButton = defineComponent<
       if (mergedHref !== undefined) {
         return wrapCSSVar(
           <a
-            {...attrs}
+            {...omit(attrs, ['class', 'style'])}
             ref={buttonRef as any}
-            class={[cls, { [`${prefixCls.value}-disabled`]: mergedDisabled.value }]}
-            style={mergedStyle}
+            class={[cls, { [`${prefixCls.value}-disabled`]: mergedDisabled.value }, attrs.class]}
+            style={[mergedStyle, (attrs as any).style]}
             href={mergedDisabled.value ? undefined : mergedHref}
             onClick={handleClick}
             aria-disabled={mergedDisabled.value}
@@ -330,11 +331,11 @@ const InternalCompoundedButton = defineComponent<
 
       let buttonNodes = (
         <button
-          {...attrs}
+          {...omit(attrs, ['class', 'style'])}
           ref={buttonRef as any}
           type={htmlType}
-          class={cls}
-          style={mergedStyle}
+          class={[cls, attrs.class]}
+          style={[mergedStyle, (attrs as any).style]}
           onClick={handleClick}
           disabled={mergedDisabled.value}
         >

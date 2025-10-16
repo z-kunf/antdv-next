@@ -8,13 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "catalog:",
     "@antdv-next/cssinjs": "workspace:^",
     "antdv-next": "workspace:^",
-    "pinia": "^3.0.3",
-    "vue": "^3.5.22",
-    "vue-router": "^4.5.1"
+    "pinia": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
   },
   "devDependencies": {
-    "unocss": "^66.5.4"
+    "unocss": "catalog:"
   }
 }

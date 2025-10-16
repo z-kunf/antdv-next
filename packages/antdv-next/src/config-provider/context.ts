@@ -153,6 +153,7 @@ export interface ConfigComponentProps {
   space?: SpaceConfig
   button?: ButtonConfig
   flex?: FlexConfig
+  divider?: ComponentStyleConfig
 }
 
 export interface ConfigConsumerProps extends ConfigComponentProps {

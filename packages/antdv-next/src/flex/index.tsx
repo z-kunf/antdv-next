@@ -1,6 +1,7 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { FlexProps } from './interface.ts'
 import { classNames } from '@v-c/util'
+import { omit } from 'es-toolkit'
 import { computed, createVNode, defineComponent } from 'vue'
 import { isPresetSize } from '../_util/gapSize.ts'
 import { useConfig } from '../config-provider/context.ts'
@@ -57,8 +58,8 @@ const Flex = defineComponent<FlexProps, Record<string, any>, string, SlotsType<F
       return wrapCSSVar(createVNode(
         component,
         {
-          class: mergedCls,
-          ...attrs,
+          class: [mergedCls, attrs.class],
+          ...omit(attrs, ['class']),
         },
         {
           default: slots.default,
