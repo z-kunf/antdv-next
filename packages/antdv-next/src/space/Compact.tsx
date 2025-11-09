@@ -86,9 +86,9 @@ const Compact = defineComponent<SpaceCompactProps>(
         hashId.value,
         cssVarCls.value,
         {
-          [`${prefixCls}-rtl`]: directionConfig === 'rtl',
-          [`${prefixCls}-block`]: block,
-          [`${prefixCls}-vertical`]: direction === 'vertical',
+          [`${prefixCls.value}-rtl`]: directionConfig === 'rtl',
+          [`${prefixCls.value}-block`]: block,
+          [`${prefixCls.value}-vertical`]: direction === 'vertical',
         },
         rootClass,
       )

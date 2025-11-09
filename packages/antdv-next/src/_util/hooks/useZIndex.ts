@@ -91,7 +91,7 @@ export function useZIndex(
     const warning = devUseWarning(componentType)
 
     const maxZIndex = token.value.zIndexPopupBase + CONTAINER_MAX_OFFSET_WITH_CHILDREN
-    const currentZIndex = result[0] || 0
+    const currentZIndex = computed(() => result[0]?.value ?? 0)
 
     warning(
       customZIndex?.value !== undefined || currentZIndex!.value! <= maxZIndex,
@@ -99,5 +99,6 @@ export function useZIndex(
       '`zIndex` is over design token `zIndexPopupBase` too much. It may cause unexpected override.',
     )
   }
+
   return result
 }

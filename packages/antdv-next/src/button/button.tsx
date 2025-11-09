@@ -77,6 +77,7 @@ export function convertLegacyProps(
 export interface ButtonProps extends BaseButtonProps {
   href?: string
   htmlType?: ButtonHTMLType
+  target?: '_self' | '_blank' | '_parent' | '_top' | string
   autoInsertSpace?: boolean
 }
 
@@ -402,6 +403,7 @@ const InternalCompoundedButton = defineComponent<
             style={fullStyle}
             href={mergedDisabled.value ? undefined : mergedHref}
             onClick={handleClick}
+            target={props.target}
             aria-disabled={mergedDisabled.value}
           >
             {iconNode}

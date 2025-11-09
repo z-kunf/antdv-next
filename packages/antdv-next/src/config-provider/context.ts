@@ -1,5 +1,6 @@
 import type { DerivativeFunc } from '@antdv-next/cssinjs'
 import type { CSSProperties, InjectionKey, Ref } from 'vue'
+import type { VueNode } from '../_util/type.ts'
 import type { WarningContextProps } from '../_util/warning.ts'
 import type { ShowWaveEffect } from '../_util/wave/interface.ts'
 import type { AlertProps } from '../alert'
@@ -11,7 +12,10 @@ import type { DescriptionsProps } from '../descriptions'
 import type { DividerProps } from '../divider'
 import type { EmptyProps } from '../empty'
 import type { FlexProps } from '../flex'
+import type { FloatButtonProps } from '../float-button/FloatButton'
+import type { FloatButtonGroupProps } from '../float-button/FloatButtonGroup'
 import type { Locale } from '../locale'
+import type { PopconfirmProps } from '../popconfirm'
 import type { PopoverProps } from '../popover'
 import type { QRCodeProps } from '../qrcode'
 import type { ResultProps } from '../result'
@@ -22,7 +26,6 @@ import type { SpinProps } from '../spin'
 import type { StatisticProps } from '../statistic'
 import type { TagProps } from '../tag'
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface'
-import type { PopconfirmProps } from '../popconfirm'
 import type { TooltipProps } from '../tooltip'
 import type { RenderEmptyHandler } from './defaultRenderEmpty.tsx'
 import { computed, inject, provide, ref } from 'vue'
@@ -194,6 +197,14 @@ export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles'
 
 export type StatisticConfig = ComponentStyleConfig & Pick<StatisticProps, 'classes' | 'styles'>
 
+export type FloatButtonConfig = ComponentStyleConfig & Pick<FloatButtonProps, 'classes' | 'styles'> & {
+  backTopIcon?: VueNode
+}
+
+export type FloatButtonGroupConfig = ComponentStyleConfig & Pick<FloatButtonGroupProps, 'classes' | 'styles'> & {
+  closeIcon?: VueNode
+}
+
 export type TooltipConfig = ComponentStyleConfig & Pick<TooltipProps, 'styles' | 'classes' | 'arrow'> & {
   /**
    * @descCN 是否开启 Tooltip 流畅过渡动画
@@ -228,8 +239,8 @@ export interface ConfigComponentProps {
   // cascader?: CascaderConfig;
   // treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig
-  // floatButton?: FloatButtonConfig;
-  // floatButtonGroup?: FloatButtonGroupConfig;
+  floatButton?: FloatButtonConfig
+  floatButtonGroup?: FloatButtonGroupConfig
   typography?: ComponentStyleConfig
   skeleton?: SkeletonConfig
   spin?: SpinConfig
@@ -415,7 +426,7 @@ export function useComponentBaseConfig<
     ...refsData,
     direction: computed(() => context.value.direction),
     prefixCls: computed(() => {
-      return context.value?.getPrefixCls(propName ?? suffixCls, props?.prefixCls)
+      return context.value?.getPrefixCls(suffixCls ?? propName, props?.prefixCls)
     }),
     getPopupContainer: context.value.getPopupContainer,
     getPrefixCls: context.value.getPrefixCls,

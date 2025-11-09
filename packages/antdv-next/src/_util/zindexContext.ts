@@ -3,7 +3,7 @@ import { computed, defineComponent, inject, provide, ref } from 'vue'
 
 const ZIndexContextKey: InjectionKey<Ref<number | undefined | null>> = Symbol('ZIndexContextKey')
 export function useZIndexContext() {
-  return inject(ZIndexContextKey, ref(null))
+  return inject(ZIndexContextKey, ref(undefined))
 }
 
 export function useZIndexProvider(zIndex: Ref<number | undefined>) {

@@ -43,5 +43,8 @@ declare module 'vue' {
     ASegmented: typeof import('antdv-next')['Segmented']
     APopover: typeof import('antdv-next')['Popover']
     APopconfirm: typeof import('antdv-next')['Popconfirm']
+    AFloatButton: typeof import('antdv-next')['FloatButton']
+    AFloatBackTop: typeof import('antdv-next')['BackTop']
+    AFloatButtonGroup: typeof import('antdv-next')['FloatButtonGroup']
   }
 }
