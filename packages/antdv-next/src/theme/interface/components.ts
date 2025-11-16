@@ -29,6 +29,7 @@ import type { ComponentToken as GridComponentToken } from '../../grid/style'
 // import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 // import type { ComponentToken as InputComponentToken } from '../../input/style';
 import type { ComponentToken as LayoutComponentToken } from '../../layout/style'
+import type { ComponentToken as MasonryComponentToken } from '../../masonry/style'
 // import type { ComponentToken as ListComponentToken } from '../../list/style';
 // import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
 import type { ComponentToken as MenuComponentToken } from '../../menu/style'
@@ -74,6 +75,8 @@ export interface ComponentTokenMap {
   Badge?: BadgeComponentToken
   Button?: ButtonComponentToken
   Breadcrumb?: BreadcrumbComponentToken
+  Masonry?: MasonryComponentToken
+
   // Card?: CardComponentToken;
   // Carousel?: CarouselComponentToken;
   // Cascader?: CascaderComponentToken;
