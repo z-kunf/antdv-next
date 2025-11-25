@@ -253,6 +253,9 @@ importers:
       '@v-c/segmented':
         specifier: ^0.0.8
         version: 0.0.8(vue@3.5.24(typescript@5.9.3))
+      '@v-c/slider':
+        specifier: ^1.0.4
+        version: 1.0.4(vue@3.5.24(typescript@5.9.3))
       '@v-c/switch':
         specifier: ^0.0.1
         version: 0.0.1(vue@3.5.24(typescript@5.9.3))
@@ -1618,6 +1621,11 @@ packages:
 
   '@v-c/segmented@0.0.8':
     resolution: {integrity: sha512-ddf+M2Iv8EqbeLBrWAKrB74zpdimkSB6Ji9NPc11BkbuufctlDU/KNqcvNao6i/kE1/pJWVsIxFh2K2HnZtjgQ==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/slider@1.0.4':
+    resolution: {integrity: sha512-cEQ1M1TMb7dCCFDycJmQn02bNHPqJbF/+AOhs7/wPcXd+PlpYgkC1Tcow+CQodKHtfpo9sZfo/Ox6o/z2u/f1A==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -5142,6 +5150,11 @@ snapshots:
       vue: 3.5.24(typescript@5.9.3)
 
   '@v-c/segmented@0.0.8(vue@3.5.24(typescript@5.9.3))':
+    dependencies:
+      '@v-c/util': 0.0.18(vue@3.5.24(typescript@5.9.3))
+      vue: 3.5.24(typescript@5.9.3)
+
+  '@v-c/slider@1.0.4(vue@3.5.24(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 0.0.18(vue@3.5.24(typescript@5.9.3))
       vue: 3.5.24(typescript@5.9.3)
