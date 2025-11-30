@@ -265,7 +265,9 @@ const InternalInput = defineComponent<
     }
 
     return () => {
-      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+      const { className, style, restAttrs } = getAttrStyleAndClass(attrs, {
+        omit: ['onCompositionStart', 'onCompositionEnd'],
+      })
 
       const prefixNode = getSlotPropsFnRun(slots, props, 'prefix')
       const suffixSlotNode = getSlotPropsFnRun(slots, props, 'suffix')

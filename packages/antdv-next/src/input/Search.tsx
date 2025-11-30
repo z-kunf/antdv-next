@@ -61,13 +61,20 @@ const omitInputKeys: (keyof SearchProps)[] = [
   'inputPrefixCls',
 ]
 
+export interface SearchSlots {
+  default?: () => any
+  prefix?: () => any
+  suffix?: () => any
+  addonBefore: () => any
+  addonAfter: () => any
+  clearIcon: () => any
+}
+
 const InternalSearch = defineComponent<
   SearchProps,
   SearchEmits,
   string,
-  SlotsType<{
-    default?: () => any
-  }>
+  SlotsType<SearchSlots>
 >(
   (props, { slots, attrs, emit, expose }) => {
     const composedRef = shallowRef(false)
@@ -128,12 +135,12 @@ const InternalSearch = defineComponent<
 
     const handleCompositionStart: BaseInputEmits['compositionStart'] = (e) => {
       composedRef.value = true
-      emit('compositionStart', e)
+      emit('compositionstart', e)
     }
 
     const handleCompositionEnd: BaseInputEmits['compositionEnd'] = (e) => {
       composedRef.value = false
-      emit('compositionEnd', e)
+      emit('compositionend', e)
     }
 
     const handlePressEnter: BaseInputEmits['pressEnter'] = (e) => {
@@ -282,8 +289,8 @@ const InternalSearch = defineComponent<
               emit('clear')
               handleSearch(undefined, { source: 'clear' })
             }}
-            onCompositionStart={handleCompositionStart}
-            onCompositionEnd={handleCompositionEnd}
+            onCompositionstart={handleCompositionStart}
+            onCompositionend={handleCompositionEnd}
             onPressEnter={handlePressEnter}
             v-slots={slots}
             {...{

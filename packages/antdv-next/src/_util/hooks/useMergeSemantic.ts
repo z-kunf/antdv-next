@@ -1,6 +1,7 @@
 import type { CSSProperties, Ref } from 'vue'
 import type { AnyObject, EmptyObject, ValidChar } from '../type'
 import { classNames as clsx } from '@v-c/util'
+import { omit } from 'es-toolkit'
 import { computed, unref } from 'vue'
 
 export type SemanticSchema = { _default?: string } & {
@@ -186,8 +187,9 @@ export function useToProps<T>(props: Ref<T>) {
 }
 
 interface RemoveBaseAttributesOptions {
-  class: boolean
-  style: boolean
+  class?: boolean
+  style?: boolean
+  omit?: string[]
 }
 const defaultOptions = {
   class: true,
@@ -201,6 +203,9 @@ export function pureAttrs(attrs: Record<string, any>, options: RemoveBaseAttribu
   }
   if (options.style) {
     delete newAttrs.style
+  }
+  if (options.omit) {
+    return omit(newAttrs, options.omit)
   }
   return newAttrs
 }
