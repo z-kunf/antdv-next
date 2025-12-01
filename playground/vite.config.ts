@@ -7,11 +7,13 @@ import { defineConfig } from 'vite'
 import inspect from 'vite-plugin-inspect'
 
 import { tsxResolveTypes } from 'vite-plugin-tsx-resolve-types'
+import { mdPlugin } from './plugins/markdown'
 
 const baseUrl = fileURLToPath(new URL('.', import.meta.url))
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    mdPlugin(),
     tsxResolveTypes({
       defaultPropsToUndefined: true,
     }),
