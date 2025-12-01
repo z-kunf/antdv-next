@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import demos from 'virtual:demos'
+import { computed, markRaw } from 'vue'
 
 defineOptions({
   name: 'Demo',
@@ -7,13 +8,12 @@ defineOptions({
 const { src } = defineProps<{
   src: string
 }>()
-const demo = demos[src]
-console.log(demo)
+const demo = computed(() => demos[src])
 </script>
 
 <template>
   <div>
-    <component :is="demo.component" v-if="demo.component" />
+    <component :is="markRaw(demo.component)" v-if="demo.component" :key="demo.source" />
     <slot />
     <div v-html="demo.html" />
   </div>

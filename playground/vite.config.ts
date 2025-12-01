@@ -20,7 +20,6 @@ export default defineConfig({
     vueJsx(),
     vue({
       include: [/\.vue$/, /\.md$/],
-      exclude: [/\.vue?demo=true/],
     }),
     inspect(),
     Unocss(),
