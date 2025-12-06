@@ -11,7 +11,7 @@ for (let i = 0; i < 100000; i++) {
     disabled: i === 10,
   })
 }
-const value = shallowRef()
+const value = shallowRef(['a10', 'c12'])
 </script>
 
 <template>
