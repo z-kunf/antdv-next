@@ -1,5 +1,4 @@
 import type { Ref } from 'vue'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { AggregationColor } from './color'
 import type { ModeOptions } from './hooks/useModeColor'
 import type { ColorFormatType, ColorPickerEmits, ModeType, PresetsItem } from './interface'
@@ -18,14 +17,20 @@ export interface PanelPickerContextProps {
   onChangeComplete?: ColorPickerEmits['changeComplete']
   format?: ColorFormatType
   onFormatChange?: ColorPickerEmits['formatChange']
+
+  /** The gradient Slider active handle */
   activeIndex: number
+  /** The gradient Slider handle active changed */
   onActive: (index: number) => void
+  /** Is gradient Slider dragging */
   gradientDragging: boolean
+  /** The gradient Slider dragging changed */
   onGradientDragging: (dragging: boolean) => void
+
   onClear?: () => void
   disabledFormat?: boolean
-  classes?: SemanticClassNames<any>
-  styles?: SemanticStyles<any>
+  // classes?: SemanticClassNames<any>
+  // styles?: SemanticStyles<any>
 }
 
 export interface PanelPresetsContextProps {
@@ -34,8 +39,8 @@ export interface PanelPresetsContextProps {
   disabled?: boolean
   value: AggregationColor
   onChange?: (value: AggregationColor) => void
-  classes?: SemanticClassNames<any>
-  styles?: SemanticStyles<any>
+  // classes?: SemanticClassNames<any>
+  // styles?: SemanticStyles<any>
 }
 
 const PanelPickerContextKey = Symbol('PanelPickerContext')

@@ -27,20 +27,23 @@ export default defineComponent<ColorSteppersProps>(
 
     const stepValue = computed(() => (!Number.isNaN(props.value) ? props.value : internalValue.value))
 
-    return () => (
-      <InputNumber
-        class={clsx(`${props.prefixCls}-steppers`, props.className)}
-        min={props.min ?? 0}
-        max={props.max ?? 100}
-        value={stepValue.value as number | undefined}
-        formatter={props.formatter as any}
-        size="small"
-        onChange={(step) => {
-          internalValue.value = (step ?? 0) as number
-          props.onChange?.(step ?? null)
-        }}
-      />
-    )
+    return () => {
+      const { prefixCls, className, min, max, formatter, onChange } = props
+      return (
+        <InputNumber
+          class={clsx(`${prefixCls}-steppers`, className)}
+          min={min ?? 0}
+          max={max ?? 100}
+          value={stepValue.value as number | undefined}
+          formatter={formatter as any}
+          size="small"
+          onChange={(step) => {
+            internalValue.value = (step ?? 0) as number
+            onChange?.(step ?? null)
+          }}
+        />
+      )
+    }
   },
   {
     name: 'ColorSteppers',

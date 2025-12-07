@@ -77,24 +77,26 @@ export default defineComponent<
         : <ColorBlock prefixCls={props.prefixCls} color={props.color.toCssString()} />
     })
 
-    return () => (
-      <div
-        {...attrs}
-        class={clsx(
-          colorTriggerPrefixCls.value,
-          props.className,
-          (attrs as any).class,
-          {
-            [`${colorTriggerPrefixCls.value}-active`]: props.open,
-            [`${colorTriggerPrefixCls.value}-disabled`]: props.disabled,
-          },
-        )}
-        style={(props.style || (attrs.style as CSSProperties)) ?? undefined}
-      >
-        {containerNode.value}
-        {props.showText && <div class={colorTextPrefixCls.value}>{desc.value}</div>}
-      </div>
-    )
+    return () => {
+      const { open, disabled, style, className } = props
+      return (
+        <div
+          {...attrs}
+          class={clsx(
+            colorTriggerPrefixCls.value,
+            className,
+            {
+              [`${colorTriggerPrefixCls.value}-active`]: open,
+              [`${colorTriggerPrefixCls.value}-disabled`]: disabled,
+            },
+          )}
+          style={style}
+        >
+          {containerNode.value}
+          {props.showText && <div class={colorTextPrefixCls.value}>{desc.value}</div>}
+        </div>
+      )
+    }
   },
   {
     name: 'AColorTrigger',

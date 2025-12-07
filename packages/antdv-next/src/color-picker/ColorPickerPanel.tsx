@@ -42,18 +42,21 @@ export default defineComponent<
       </div>
     )
 
-    return () => (
-      <div class={colorPickerPanelPrefix}>
-        {typeof props.panelRender === 'function'
-          ? props.panelRender(innerPanel(), {
-              components: {
-                Picker: PanelPicker,
-                Presets: PanelPresets,
-              },
-            })
-          : innerPanel()}
-      </div>
-    )
+    return () => {
+      return (
+        <div class={colorPickerPanelPrefix}>
+          {typeof props.panelRender === 'function'
+            ? props.panelRender({
+                panel: innerPanel(),
+                extra: { components: {
+                  Picker: PanelPicker,
+                  Presets: PanelPresets,
+                } },
+              })
+            : innerPanel()}
+        </div>
+      )
+    }
   },
   {
     name: 'AColorPickerPanel',

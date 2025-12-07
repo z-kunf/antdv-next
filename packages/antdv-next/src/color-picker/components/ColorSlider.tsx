@@ -1,6 +1,7 @@
 import type { BaseSliderProps } from '@v-c/color-picker'
 import { UnstableProvider } from '@v-c/slider'
 import { clsx } from '@v-c/util'
+import { omit } from 'es-toolkit'
 import { cloneVNode, computed, defineComponent } from 'vue'
 import Slider from '../../slider'
 import { useSliderInternalContextProvider } from '../../slider/Context'
@@ -28,7 +29,9 @@ export interface GradientColorSliderProps
   onKeyDelete?: (index: number) => void
 }
 
-export const GradientColorSlider = defineComponent<GradientColorSliderProps>(
+export const GradientColorSlider = defineComponent<
+  GradientColorSliderProps
+>(
   (props) => {
     const linearCss = computed(() => {
       const colorsStr = props.colors.map(c => `${c.color} ${c.percent}%`).join(', ')
@@ -144,14 +147,20 @@ const SingleColorSlider = defineComponent<BaseSliderProps>(
     const onChange = (v: number[]) => props.onChange?.(v[0]!)
     const onChangeComplete = (v: number[]) => props.onChangeComplete?.(v[0]!)
 
-    return (
-      <GradientColorSlider
-        {...props as any}
-        value={[props.value]}
-        onChange={onChange}
-        onChangeComplete={onChangeComplete}
-      />
-    ) as any
+    return () => {
+      const {
+        value,
+        ...restProps
+      } = props
+      return (
+        <GradientColorSlider
+          {...omit(restProps, ['onChange', 'onChangeComplete']) as any}
+          value={[value]}
+          onChange={onChange}
+          onChangeComplete={onChangeComplete}
+        />
+      )
+    }
   },
   {
     name: 'ColorSlider',

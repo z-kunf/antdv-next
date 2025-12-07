@@ -86,6 +86,9 @@ export default function useModeColor(
     () => {
       modeState.value = postColor.value?.isGradient() ? 'gradient' : 'single'
     },
+    {
+      immediate: true,
+    },
   )
 
   const setModeState = (nextMode: ModeType) => {

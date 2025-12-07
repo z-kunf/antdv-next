@@ -1,5 +1,6 @@
 import type {
   ColorGenInput,
+  ColorPickerProps as VcColorPickerProps,
 } from '@v-c/color-picker'
 
 import type { Key } from '@v-c/util/dist/type'
@@ -74,35 +75,37 @@ export type ColorPickerStylesType = SemanticStylesType<
   }
 >
 
-export type ColorPickerProps = {
-  prefixCls?: string
-  mode?: ModeType | ModeType[]
-  value?: ColorValueType
-  defaultValue?: ColorValueType
-  open?: boolean
-  disabled?: boolean
-  placement?: TriggerPlacement
-  trigger?: TriggerType
-  format?: ColorFormatType
-  defaultFormat?: ColorFormatType
-  allowClear?: boolean
-  presets?: PresetsItem[]
-  arrow?: boolean | { pointAtCenter: boolean }
-  panelRender?: (
-    panel: any,
-    extra: { components: { Picker: any, Presets: any } },
-  ) => any
-  showText?: boolean | ((color: AggregationColor) => any)
-  size?: SizeType
-  classes?: ColorPickerClassNamesType
-  styles?: ColorPickerStylesType
-  rootClass?: string
-  disabledAlpha?: boolean
-  disabledFormat?: boolean
-} & Pick<
-  PopoverProps,
+export type ColorPickerProps
+  = Omit<VcColorPickerProps, 'onChange' | 'onChangeComplete' | 'value'
+  | 'defaultValue'
+  | 'panelRender'
+  | 'disabledAlpha'
+  | 'components'> & {
+    mode?: ModeType | ModeType[]
+    value?: ColorValueType
+    defaultValue?: ColorValueType
+    open?: boolean
+    disabled?: boolean
+    placement?: TriggerPlacement
+    trigger?: TriggerType
+    format?: ColorFormatType
+    defaultFormat?: ColorFormatType
+    allowClear?: boolean
+    presets?: PresetsItem[]
+    arrow?: boolean | { pointAtCenter: boolean }
+    panelRender?: (params: { panel: any, extra: { components: { Picker: any, Presets: any } } }) => any
+    showText?: boolean | ((color: AggregationColor) => any)
+    size?: SizeType
+    classes?: ColorPickerClassNamesType
+    styles?: ColorPickerStylesType
+    rootClass?: string
+    disabledAlpha?: boolean
+    disabledFormat?: boolean
+    [key: `data-${string}`]: string
+  } & Pick<
+    PopoverProps,
     'getPopupContainer' | 'autoAdjustOverflow' | 'destroyOnHidden'
->
+  >
 
 export interface ColorPickerEmits {
   'change': (value: AggregationColor, css: string) => void
@@ -116,7 +119,7 @@ export interface ColorPickerEmits {
 }
 
 export interface ColorPickerSlots {
-  panelRender: (panel: VueNode, extra: { components: { Picker: any, Presets: any } }) => any
+  panelRender: (params: { panel: any, extra: { components: { Picker: any, Presets: any } } }) => any
   showText: (color: AggregationColor) => any
   default: () => any
 }

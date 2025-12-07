@@ -32,15 +32,18 @@ export default defineComponent<ColorAlphaInputProps>(
       props.onChange?.(genColor)
     }
 
-    return () => (
-      <ColorSteppers
-        value={getColorAlpha(alphaValue.value)}
-        prefixCls={props.prefixCls}
-        formatter={step => `${step}%`}
-        className={`${props.prefixCls}-alpha-input`}
-        onChange={handleAlphaChange}
-      />
-    )
+    return () => {
+      const { prefixCls } = props
+      return (
+        <ColorSteppers
+          value={getColorAlpha(alphaValue.value)}
+          prefixCls={prefixCls}
+          formatter={step => `${step}%`}
+          className={`${prefixCls}-alpha-input`}
+          onChange={handleAlphaChange}
+        />
+      )
+    }
   },
   {
     name: 'ColorAlphaInput',
