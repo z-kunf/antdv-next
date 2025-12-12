@@ -17,7 +17,7 @@ import type { ComponentToken as ColorPickerComponentToken } from '../../color-pi
 // import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 import type { ComponentToken as DescriptionsComponentToken } from '../../descriptions/style'
 import type { ComponentToken as DividerComponentToken } from '../../divider/style'
-// import type { ComponentToken as DrawerComponentToken } from '../../drawer/style';
+import type { ComponentToken as DrawerComponentToken } from '../../drawer/style'
 import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style'
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style'
 import type { ComponentToken as FlexComponentToken } from '../../flex/style'
@@ -32,7 +32,7 @@ import type { ComponentToken as MasonryComponentToken } from '../../masonry/styl
 // import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
 import type { ComponentToken as MenuComponentToken } from '../../menu/style'
 import type { ComponentToken as MessageComponentToken } from '../../message/style'
-// import type { ComponentToken as ModalComponentToken } from '../../modal/style';
+import type { ComponentToken as ModalComponentToken } from '../../modal/style'
 import type { ComponentToken as NotificationComponentToken } from '../../notification/style'
 // import type { ComponentToken as PaginationComponentToken } from '../../pagination/style';
 import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style'
@@ -82,7 +82,7 @@ export interface ComponentTokenMap {
   // DatePicker?: DatePickerComponentToken;
   Descriptions?: DescriptionsComponentToken
   Divider?: DividerComponentToken
-  // Drawer?: DrawerComponentToken;
+  Drawer?: DrawerComponentToken
   Dropdown?: DropdownComponentToken
   Empty?: EmptyComponentToken
   Flex?: FlexComponentToken
@@ -119,7 +119,7 @@ export interface ComponentTokenMap {
   // Calendar?: CalendarComponentToken;
   // Steps?: StepsComponentToken;
   Menu?: MenuComponentToken
-  // Modal?: ModalComponentToken;
+  Modal?: ModalComponentToken
   Message?: MessageComponentToken
   // Upload?: UploadComponentToken;
   Tooltip?: TooltipComponentToken

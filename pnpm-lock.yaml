@@ -227,6 +227,12 @@ importers:
       '@v-c/color-picker':
         specifier: 'catalog:'
         version: 1.0.3(vue@3.5.24(typescript@5.9.3))
+      '@v-c/dialog':
+        specifier: ^0.0.1
+        version: 0.0.1(vue@3.5.24(typescript@5.9.3))
+      '@v-c/drawer':
+        specifier: ^0.0.1
+        version: 0.0.1(vue@3.5.24(typescript@5.9.3))
       '@v-c/dropdown':
         specifier: ^1.0.0
         version: 1.0.0(vue@3.5.24(typescript@5.9.3))
@@ -1644,6 +1650,16 @@ packages:
 
   '@v-c/color-picker@1.0.3':
     resolution: {integrity: sha512-Q2IFmqvs/ZL54G74c36I8N7B0vZG4A+C165YFeGbSDKA2gKC66wpF0YAzaWFQDwhSLeKOz8plWueeXblBxSsxQ==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/dialog@0.0.1':
+    resolution: {integrity: sha512-PT/MtOwN+etBIsh6Psl3yMzvv76NR2afmUBmBDAs6bfXosL4X3FJBJY2L3MwZmhGFOv8EGV4XlM0EjX89O3QQw==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/drawer@0.0.1':
+    resolution: {integrity: sha512-sFXUiqSn+4H4/9csWocEtZ31K43kUjzvwRpzbUEl4rkSgisj5uIMc4dIsHVw4lCWhXqsjrnYm8ekc2sRiRvqjw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -5375,6 +5391,18 @@ snapshots:
   '@v-c/color-picker@1.0.3(vue@3.5.24(typescript@5.9.3))':
     dependencies:
       '@ant-design/fast-color': 3.0.0
+      '@v-c/util': 1.0.2(vue@3.5.24(typescript@5.9.3))
+      vue: 3.5.24(typescript@5.9.3)
+
+  '@v-c/dialog@0.0.1(vue@3.5.24(typescript@5.9.3))':
+    dependencies:
+      '@v-c/portal': 1.0.0(vue@3.5.24(typescript@5.9.3))
+      '@v-c/util': 1.0.2(vue@3.5.24(typescript@5.9.3))
+      vue: 3.5.24(typescript@5.9.3)
+
+  '@v-c/drawer@0.0.1(vue@3.5.24(typescript@5.9.3))':
+    dependencies:
+      '@v-c/portal': 1.0.0(vue@3.5.24(typescript@5.9.3))
       '@v-c/util': 1.0.2(vue@3.5.24(typescript@5.9.3))
       vue: 3.5.24(typescript@5.9.3)
 
