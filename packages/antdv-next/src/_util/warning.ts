@@ -1,6 +1,6 @@
 import type { InjectionKey, Ref } from 'vue'
 import rcWarning, { resetWarned as rcResetWarned } from '@v-c/util/dist/warning'
-import { inject, provide, ref } from 'vue'
+import { getCurrentInstance, inject, provide, ref } from 'vue'
 
 export function noop() {}
 
@@ -64,6 +64,10 @@ export function useWarningProvider(props: WarningContextType) {
 }
 
 export function useWarningContext() {
+  const instance = getCurrentInstance()
+  if (!instance) {
+    return {} as any
+  }
   return inject(WarningContextKey, {
     strict: ref(true),
   })
