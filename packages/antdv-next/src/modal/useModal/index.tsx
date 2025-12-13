@@ -1,4 +1,4 @@
-import type { VNode } from 'vue'
+import type { DefineComponent, VNode } from 'vue'
 import type { ConfigUpdate } from '../confirm'
 import type { ModalFuncProps } from '../interface.ts'
 import type { HookModalRef } from './interface'
@@ -33,7 +33,7 @@ const ElementsHolder = defineComponent(
   },
 )
 
-export default function useModal(): readonly [instance: HookAPI, contextHolder: () => VNode] {
+export default function useModal(): readonly [instance: HookAPI, contextHolder: DefineComponent] {
   const holderRef = shallowRef<ElementsHolderRef>()
 
   // ========================== Effect ==========================
@@ -65,22 +65,7 @@ export default function useModal(): readonly [instance: HookAPI, contextHolder: 
       })
       let silent = false
 
-      const modal = (
-        <HookModal
-          key={`modal-${uuid}`}
-          config={withFunc(config)}
-          ref={modalRef as any}
-          afterClose={() => {
-            closeFunc()
-          }}
-          isSilent={() => silent}
-          onConfirm={(confirmed) => {
-            resolvePromise(confirmed)
-          }}
-        />
-      )
-
-      const closePatch = holderRef.value?.patchElement(modal as any)
+      let closePatch: VoidFunction | undefined
       function closeFunc() {
         closePatch?.()
         const index = destroyFns.indexOf(closeFunc)
@@ -88,6 +73,30 @@ export default function useModal(): readonly [instance: HookAPI, contextHolder: 
           destroyFns.splice(index, 1)
         }
       }
+
+      // 将 modal VNode 包装成组件，确保 ref 在正确的渲染上下文中
+      const ModalWrapper = defineComponent({
+        name: 'ModalWrapper',
+        setup() {
+          return () => (
+            <HookModal
+              config={withFunc(config)}
+              ref={modalRef as any}
+              afterClose={() => {
+                closeFunc()
+              }}
+              isSilent={() => silent}
+              onConfirm={(confirmed) => {
+                resolvePromise(confirmed)
+              }}
+            />
+          )
+        },
+      })
+
+      const modal = <ModalWrapper key={`modal-${uuid}`} />
+
+      closePatch = holderRef.value?.patchElement(modal as any)
       if (closePatch) {
         destroyFns.push(closeFunc)
       }
@@ -127,14 +136,20 @@ export default function useModal(): readonly [instance: HookAPI, contextHolder: 
     confirm: getConfirmFunc(withConfirm),
   } as HookAPI
 
-  const contextHolder = () => {
-    return (
-      <ElementsHolder ref={holderRef as any}>
-        {(elements: VNode[]) => elements}
-      </ElementsHolder>
-    )
-  }
-  return [fns, contextHolder] as const
+  const contextHolder = defineComponent(
+    () => {
+      return () => {
+        return (
+          <ElementsHolder key="modal-holder" ref={holderRef as any} />
+        )
+      }
+    },
+    {
+      name: 'ContextHolder',
+      inheritAttrs: false,
+    },
+  )
+  return [fns, contextHolder as any] as const
 }
 
 export type { HookAPI, ModalFuncWithPromise }
