@@ -10,7 +10,7 @@ You can customize the [semantic dom](#semantic-dom) style of Pagination by passi
 import type { PaginationProps } from 'antdv-next'
 
 const classes: PaginationProps['classes'] = {
-  root: 'pagination-demo-root',
+  root: 'border-2 border-dashed border-gray-300 p-2',
 }
 
 const stylesObject: PaginationProps['styles'] = {
@@ -38,10 +38,3 @@ const stylesFn: PaginationProps['styles'] = ({ props }) => {
     <a-pagination :total="500" size="small" :classes="classes" :styles="stylesFn" />
   </a-flex>
 </template>
-
-<style>
-.pagination-demo-root {
-  border: 2px dashed #ccc;
-  padding: 8px;
-}
-</style>
