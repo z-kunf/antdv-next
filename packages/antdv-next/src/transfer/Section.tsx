@@ -9,6 +9,7 @@ import type {
 import type { ListBodyRef } from './ListBody'
 import { DownOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
+import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, isVNode, ref } from 'vue'
 import { groupKeysMap } from '../_util/transKeys'
@@ -75,12 +76,23 @@ const TransferSection = defineComponent<
     const renderItem = (item: KeyWiseTransferItem) => {
       const renderResult = (props.render || defaultRender)(item)
       const isRenderResultPlain = isRenderResultPlainObject(renderResult)
+      const labelNode = props.labelRender?.(item)
+      let mergedLabel: any = null
+      if (Array.isArray(labelNode)) {
+        const labelNodes = filterEmpty(labelNode)
+        if (labelNodes.length) {
+          mergedLabel = labelNodes
+        }
+      }
+      else if (labelNode !== undefined && labelNode !== null) {
+        mergedLabel = labelNode
+      }
       const renderedText = isRenderResultPlain
         ? renderResult.value
         : (typeof renderResult === 'string' || typeof renderResult === 'number' ? String(renderResult) : '')
       return {
         item,
-        renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
+        renderedEl: mergedLabel ?? (isRenderResultPlain ? renderResult.label : renderResult),
         renderedText,
       }
     }

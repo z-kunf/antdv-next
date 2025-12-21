@@ -95,6 +95,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   onItemRemove?: (keys: TransferKey[]) => void
   handleClear: () => void
   render?: TransferRender<RecordType>
+  labelRender?: (item: RecordType) => any
   showSearch?: boolean | TransferSearchOption
   renderList?: (props: TransferListBodyProps<RecordType>) => any
   footer?: (props: TransferListProps<RecordType>, info?: { direction: TransferDirection }) => any
@@ -140,7 +141,7 @@ export interface TransferProps<RecordType = any> extends ComponentBaseProps {
   targetKeys?: TransferKey[]
   selectedKeys?: TransferKey[]
   render?: TransferRender<RecordType>
-  labelRender?: VueNode
+  labelRender?: (item: RecordType) => any
   titles?: VueNode[]
   /** @deprecated Please use `actions` instead. */
   operations?: VueNode[]

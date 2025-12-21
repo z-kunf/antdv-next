@@ -1,6 +1,7 @@
 import type { SlotsType } from 'vue'
 import type { TransferDirection, TransferEmits, TransferKey, TransferProps, TransferSlots } from './interface'
 import { clsx } from '@v-c/util'
+import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useMultipleSelect, useToArr, useToProps } from '../_util/hooks'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
@@ -61,7 +62,22 @@ const Transfer = defineComponent<
     const rootCls = useCSSVarCls(prefixCls)
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
 
-    const mergedActions = computed(() => props.actions || props.operations || [])
+    const normalizeNodes = (nodes: any) => filterEmpty(Array.isArray(nodes) ? nodes : [nodes])
+    const getSlotNodes = (slot?: () => any) => {
+      if (!slot) {
+        return undefined
+      }
+      const items = normalizeNodes(slot())
+      return items.length ? items : undefined
+    }
+
+    const mergedActions = computed(() => {
+      const slotActions = getSlotNodes(slots.actions)
+      if (slotActions?.length) {
+        return slotActions
+      }
+      return normalizeNodes(props.actions ?? props.operations ?? [])
+    })
 
     const dataSource = computed(() => props.dataSource || [])
     const targetKeys = computed(() => props.targetKeys || [])
@@ -293,7 +309,13 @@ const Transfer = defineComponent<
       ...(props.locale || {}),
     }))
 
-    const titles = computed(() => getTitles(listLocale.value))
+    const titles = computed(() => getSlotNodes(slots.titles) ?? getTitles(listLocale.value))
+    const mergedLabelRender = computed(() => {
+      if (!slots.labelRender && !props.labelRender) {
+        return undefined
+      }
+      return (item: any) => getSlotPropsFnRun(slots, props, 'labelRender', true, item)
+    })
     const mergedSelectionsIcon = computed(() =>
       getSlotPropsFnRun(slots, props, 'selectionsIcon', false) ?? contextSelectionsIcon.value,
     )
@@ -393,6 +415,7 @@ const Transfer = defineComponent<
             onItemSelect={onLeftItemSelect}
             onItemSelectAll={onLeftItemSelectAll as any}
             render={mergedRender.value}
+            labelRender={mergedLabelRender.value}
             showSearch={props.showSearch}
             renderList={renderList.value}
             footer={mergedFooter.value as any}
@@ -435,6 +458,7 @@ const Transfer = defineComponent<
             onItemSelectAll={onRightItemSelectAll as any}
             onItemRemove={onRightItemRemove}
             render={mergedRender.value}
+            labelRender={mergedLabelRender.value}
             showSearch={props.showSearch}
             renderList={renderList.value}
             footer={mergedFooter.value as any}
