@@ -31,6 +31,10 @@ const { siderMenus, siderKey, siderOpenKeys } = storeToRefs(appStore)
     scrollbar-width: thin;
     scrollbar-gutter: stable;
 
+    &:hover {
+      overflow-y: auto;
+    }
+
     &-menu {
       min-height: 100%;
       padding-top: 0;
