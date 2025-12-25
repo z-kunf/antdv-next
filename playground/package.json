@@ -53,6 +53,6 @@
     "shiki": "^3.20.0",
     "tinyglobby": "^0.2.15",
     "unocss": "catalog:",
-    "vite": "^8.0.0-beta.2"
+    "vite": "^8.0.0-beta.5"
   }
 }

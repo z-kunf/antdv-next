@@ -2,6 +2,7 @@
 import { EditOutlined, LinkOutlined } from '@antdv-next/icons'
 import demos from 'virtual:demos'
 import { computed, defineAsyncComponent, shallowRef } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import ExpandIcon from '@/components/code-demo/expand-icon.vue'
 import { getId } from '@/components/code-demo/utils/getId'
 import ExternalLink from '@/components/icons/external-link.vue'
@@ -14,6 +15,8 @@ const { src } = defineProps<{
   src: string
 }>()
 const demo = computed(() => demos[src])
+const route = useRoute()
+const router = useRouter()
 const appStore = useAppStore()
 const description = computed(() => {
   const locales = demo.value?.locales ?? {}
@@ -31,10 +34,20 @@ const showCode = shallowRef(false)
 function handleShowCode() {
   showCode.value = !showCode.value
 }
+const active = computed(() => route.hash === `#${id.value}`)
+const domRef = shallowRef<HTMLDivElement>()
+function handleScroll(e: Event) {
+  e.preventDefault()
+  e.stopPropagation()
+  router.push({
+    path: route.path,
+    hash: `#${id.value}`,
+  })
+}
 </script>
 
 <template>
-  <section :id="id" class="ant-doc-demo-box">
+  <section :id="id" ref="domRef" class="ant-doc-demo-box border-1 border-solid border-color-split" :class="active ? 'border-primary' : ''">
     <section class="vp-raw ant-doc-demo-box-demo">
       <Suspense>
         <component :is="component" v-if="demo?.component" />
@@ -45,7 +58,7 @@ function handleShowCode() {
     </section>
     <section class="ant-doc-demo-box-meta markdown">
       <div class="ant-doc-demo-box-title">
-        <a :href="`#${id}`">
+        <a :href="`#${id}`" @click="handleScroll">
           <slot />
         </a>
         <a target="_blank" rel="noopener norreferrer" class="ml-xs">
@@ -77,7 +90,6 @@ function handleShowCode() {
 
   break-inside: avoid;
   display: flow-root;
-  border: 1px solid #f0f0f0;
   border-radius: 8px;
   transition: 0.2s;
   box-sizing: border-box;
@@ -135,6 +147,12 @@ function handleShowCode() {
       cursor: pointer;
       transition: 0.24s;
     }
+  }
+
+  &-code {
+    line-height: 2;
+    padding: var(--ant-padding-sm) var(--ant-padding);
+    border-top: 1px solid var(--ant-color-split);
   }
 }
 </style>

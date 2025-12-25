@@ -120,6 +120,7 @@ export function presetAntd(options: AntdPresetOptions = {}) {
             'main': `var(--${antPrefix}-color-text)`,
             'sec': `var(--${antPrefix}-color-text-secondary)`,
             'quat': `var(--${antPrefix}-color-text-quaternary)`,
+            'split': `var(--${antPrefix}-color-split)`,
 
             // 边框 (Border)
             'border': `var(--${antPrefix}-color-border)`,
