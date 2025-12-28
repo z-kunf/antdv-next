@@ -59,7 +59,7 @@ const dataSource: DataItem[] = [
   },
 ]
 
-function handleAction(record: DataItem) {
+function handleAction(record: Record<string, any>) {
   console.log('Action:', record.name)
 }
 </script>

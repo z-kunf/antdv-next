@@ -32,7 +32,7 @@ const columns: TableProps['columns'] = [
 const editingKey = ref<string | null>(null)
 const editRow = ref({ name: '', age: '', address: '' })
 
-function edit(record: DataType) {
+function edit(record: Record<string, any>) {
   editingKey.value = record.key
   editRow.value = {
     name: record.name,

@@ -7,7 +7,7 @@ Editable cells.
 </docs>
 
 <script setup lang="ts">
-import type { TableProps } from 'antdv-next'
+import type { TableDataIndex, TableProps } from 'antdv-next'
 import { computed, ref } from 'vue'
 
 interface DataType {
@@ -34,12 +34,12 @@ const columns = computed<TableProps['columns']>(() => [
   { title: 'Operation', key: 'operation' },
 ])
 
-function startEdit(record: DataType, dataIndex: keyof DataType) {
+function startEdit(record: Record<string, any>, dataIndex: TableDataIndex) {
   editing.value = { key: record.key, dataIndex }
   inputValue.value = String(record[dataIndex])
 }
 
-function saveEdit(record: DataType) {
+function saveEdit(record: Record<string, any>) {
   if (!editing.value) {
     return
   }
@@ -83,7 +83,7 @@ function cancelEdit() {
   </a-table>
 </template>
 
-<style scoped>
+<style>
 .editable-cell {
   cursor: pointer;
   padding-inline-end: 24px;

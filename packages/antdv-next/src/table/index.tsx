@@ -1,4 +1,4 @@
-import type { Reference } from '@v-c/table'
+import type { DataIndex, Reference } from '@v-c/table'
 import type { App } from 'vue'
 import { EXPAND_COLUMN, Summary, SummaryCell, SummaryRow } from '@v-c/table'
 import Column from './Column.tsx'
@@ -13,7 +13,7 @@ import Table from './Table.tsx'
 
 export type { ColumnsType, ColumnType, ExpandType, FilterValue, SorterResult, SortOrder, TableLocale, TablePaginationConfig, TableRowSelection } from './interface.ts'
 export type { TableClassNamesType, TableEmits, TableProps, TableSlots, TableStylesType } from './InternalTable.tsx'
-export type { Reference }
+export type { DataIndex, Reference }
 
 const InternalTable = Table as typeof Table & {
   install: (app: App) => void

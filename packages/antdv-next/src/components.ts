@@ -148,6 +148,7 @@ export type {
   TableClassNamesType,
   ColumnsType as TableColumnsType,
   ColumnType as TableColumnType,
+  DataIndex as TableDataIndex,
   TableEmits,
   TableLocale,
   TablePaginationConfig,
