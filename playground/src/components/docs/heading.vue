@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import type { Frontmatter } from '@/composables/doc-page.ts'
 import { EditOutlined } from '@antdv-next/icons'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { usePageInfo } from '@/composables/doc-page.ts'
 
 defineOptions({
   name: 'DocHeading',
 })
-defineProps<{
-  frontmatter?: Frontmatter
-}>()
+const { frontmatter } = usePageInfo()
 
 const route = useRoute()
 const githubUrl = computed(() => {

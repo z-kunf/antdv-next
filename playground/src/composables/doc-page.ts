@@ -1,4 +1,4 @@
-import { computed, provide, shallowRef } from 'vue'
+import { computed, inject, provide, shallowRef } from 'vue'
 
 export interface Frontmatter {
   title?: string
@@ -55,4 +55,8 @@ export function useDocPage() {
     pageData,
     anchorItems,
   }
+}
+
+export function usePageInfo() {
+  return inject('__pageInfo__', {} as DocPage) as DocPage
 }

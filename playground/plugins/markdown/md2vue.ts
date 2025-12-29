@@ -97,7 +97,7 @@ export function md2Vue(code: string, env: MarkdownItEnv) {
 
 export function md2VuePlugin(options: CreateMarkdownOptions = {}): PluginOption {
   let md: ReturnType<typeof useMarkdown>
-  const cache = new LRUCache({
+  const cache = new LRUCache<string, { hash: string, code: string }>({
     max: 500,
     ttl: 1000 * 60 * 10,
     allowStale: true,
@@ -105,16 +105,17 @@ export function md2VuePlugin(options: CreateMarkdownOptions = {}): PluginOption 
   })
 
   async function transform(code: string, id: string) {
-    const key = shortHash(code)
-    if (cache.has(key)) {
-      return cache.get(key) as string
+    const hash = shortHash(code)
+    const cached = cache.get(id)
+    if (cached && cached.hash === hash) {
+      return cached.code
     }
     const env: MarkdownItEnv = {
       id,
     }
     const html = await md.renderAsync(code, env)
     const vueCode = md2Vue(html, env)
-    cache.set(key, vueCode)
+    cache.set(id, { hash, code: vueCode })
     return vueCode
   }
   return {
@@ -138,11 +139,11 @@ export function md2VuePlugin(options: CreateMarkdownOptions = {}): PluginOption 
       const { file, read } = ctx
       if (!file.endsWith('.md'))
         return
-      const defaultRead = read
 
+      const defaultRead = read
       ctx.read = async () => {
         const code = await defaultRead()
-        return transform(code, ctx.file)
+        return transform(code, file)
       }
     },
   }
