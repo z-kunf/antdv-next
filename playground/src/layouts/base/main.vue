@@ -8,7 +8,7 @@ import { useAppStore } from '@/stores/app'
 
 const { isMobile } = useMobile()
 const appStore = useAppStore()
-const { siderMenus, siderKey, siderOpenKeys } = storeToRefs(appStore)
+const { siderMenus, siderKey, siderOpenKeys, siderLocales, locale } = storeToRefs(appStore)
 const { anchorItems } = useDocPage()
 const router = useRouter()
 const handleChangeMenu: MenuEmits['click'] = (info) => {
@@ -39,7 +39,18 @@ const handleChangeMenu: MenuEmits['click'] = (info) => {
         :selected-keys="siderKey"
         :open-keys="siderOpenKeys"
         @click="handleChangeMenu"
-      />
+      >
+        <template #labelRender="{ key, label }">
+          {{ siderLocales?.[key]?.[locale] ?? label }}
+        </template>
+        <template #extraRender="{ tag }">
+          <template v-if="tag">
+            <a-tag color="success">
+              {{ tag }}
+            </a-tag>
+          </template>
+        </template>
+      </a-menu>
     </a-col>
     <a-col :xxl="20" :xl="19" :lg="18" :md="18" :sm="24" :xs="24">
       <section class="ant-doc-main-section">

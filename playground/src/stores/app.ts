@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { localeStore } from '@/composables/locale.ts'
 import { menusMap } from '@/config/menu'
 
 export interface AppState {
@@ -14,7 +15,7 @@ export const useAppStore = defineStore('app', {
       headerKey: [],
       siderKey: [],
       siderOpenKeys: [],
-      locale: 'zh-CN',
+      locale: localeStore.value,
     }
   },
   actions: {
@@ -29,6 +30,7 @@ export const useAppStore = defineStore('app', {
     },
     setLocale(locale: AppState['locale']) {
       this.locale = locale
+      localeStore.value = locale
     },
   },
   getters: {
@@ -42,6 +44,18 @@ export const useAppStore = defineStore('app', {
         return currentMenus.menus
       }
       return []
+    },
+
+    siderLocales(store) {
+      const currentKey = store.headerKey[0]
+      if (!currentKey) {
+        return {}
+      }
+      const currentMenus = menusMap[currentKey]
+      if (currentMenus) {
+        return currentMenus.locales
+      }
+      return {}
     },
   },
 })

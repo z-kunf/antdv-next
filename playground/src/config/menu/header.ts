@@ -18,3 +18,25 @@ export const headerItems: MenuItemType[] = [
     label: '资源',
   },
 ]
+
+export const headerLocales: Record<string, {
+  'zh-CN': string
+  'en-US': string
+}> = {
+  '/docs/vue': {
+    'zh-CN': '研发',
+    'en-US': 'Development',
+  },
+  '/components': {
+    'zh-CN': '组件',
+    'en-US': 'Components',
+  },
+  '/blog': {
+    'zh-CN': '博客',
+    'en-US': 'Blog',
+  },
+  '/docs/resources': {
+    'zh-CN': '资源',
+    'en-US': 'Resources',
+  },
+}

@@ -3,18 +3,18 @@ import type { MenuEmits } from 'antdv-next'
 import { GithubOutlined } from '@antdv-next/icons'
 import { version } from 'antdv-next'
 import { storeToRefs } from 'pinia'
-import { ref, shallowRef, watch } from 'vue'
+import { computed, ref, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import DirectionIcon from '@/components/icons/directionIcon.vue'
 import SearchIcon from '@/components/icons/search.vue'
 import { useMobile } from '@/composables/mobile'
-import { headerItems } from '@/config/menu/header'
+import { headerItems, headerLocales } from '@/config/menu/header'
 import SwitchBtn from '@/layouts/base/components/switch-btn.vue'
 import { useAppStore } from '@/stores/app.ts'
 
 const route = useRoute()
 const appStore = useAppStore()
-const { headerKey } = storeToRefs(appStore)
+const { headerKey, locale } = storeToRefs(appStore)
 const versions = ref([
   {
     label: version,
@@ -56,6 +56,38 @@ watch(
   },
   { immediate: true },
 )
+
+function changeLocale(value: 1 | 2) {
+  const path = route.path
+  if (value === 1) {
+    if (!path.endsWith('-cn')) {
+      const newPath = path === '/' ? '/index-cn' : `${path}-cn`
+      router.push({
+        path: newPath,
+        hash: route.hash,
+      })
+    }
+  }
+  else {
+    if (path === '/index-cn') {
+      router.push({
+        path: '/',
+        hash: route.hash,
+      })
+    }
+    else if (path.endsWith('-cn')) {
+      const newPath = path.slice(0, path.length - 3) || '/'
+      router.push({
+        path: newPath,
+        hash: route.hash,
+      })
+    }
+  }
+  appStore.setLocale(value === 1 ? 'zh-CN' : 'en-US')
+}
+const localeValue = computed(() => {
+  return locale.value === 'zh-CN' ? 1 : 2
+})
 </script>
 
 <template>
@@ -86,7 +118,11 @@ watch(
               mode="horizontal"
               :items="headerItems"
               @click="handleHeaderChange"
-            />
+            >
+              <template #labelRender="{ key, label }">
+                {{ headerLocales?.[key]?.[locale] ?? label }}
+              </template>
+            </a-menu>
             <a-select
               v-model:value="currentVersion"
               :options="versions"
@@ -95,8 +131,11 @@ watch(
               class="min-w-90px"
             />
             <SwitchBtn
-              key="lang" :value="1" tooltip1="中文 / English"
+              key="lang"
+              :value="localeValue"
+              tooltip1="中文 / English"
               tooltip2="English / 中文"
+              @click="changeLocale"
             >
               <template #label1>
                 中
@@ -157,6 +196,11 @@ watch(
   }
 }
 .ant-doc-header-menu {
+  flex: 1;
+  min-width: 0;
+  flex-shrink: 0;
+  justify-content: flex-end;
+
   .ant-menu-item {
     height: var(--ant-doc-header-height);
     line-height: var(--ant-doc-header-height);

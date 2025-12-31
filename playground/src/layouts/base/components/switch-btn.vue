@@ -5,11 +5,14 @@ defineProps<{
   tooltip1?: string
   tooltip2?: string
 }>()
+const emit = defineEmits<{
+  click: [value: 1 | 2]
+}>()
 </script>
 
 <template>
   <a-tooltip :title="value === 1 ? tooltip1 : tooltip2">
-    <a-button type="text" class="ant-switch-btn">
+    <a-button type="text" class="ant-switch-btn" @click="emit('click', value === 1 ? 2 : 1)">
       <div class="btn-inner">
         <template v-if="pure">
           <template v-if="value === 1">

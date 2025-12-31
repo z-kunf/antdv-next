@@ -79,6 +79,7 @@ export interface RenderItem {
   type?: 'item' | 'submenu' | 'group' | 'divider'
   theme?: 'dark' | 'light'
   title?: string
+  [key: string]: any
 }
 
 export interface MenuProps extends Omit<
