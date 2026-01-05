@@ -402,6 +402,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
       {
         name,
         inheritAttrs: false,
+        props: [],
       },
     )
   }

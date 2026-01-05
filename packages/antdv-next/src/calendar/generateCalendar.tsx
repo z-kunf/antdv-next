@@ -64,10 +64,32 @@ export interface CalendarProps<DateType> {
   mode?: CalendarMode
   fullscreen?: boolean
   showWeek?: boolean
-  onChange?: (date: DateType) => void
-  onPanelChange?: (date: DateType, mode: CalendarMode) => void
-  onSelect?: (date: DateType, selectInfo: SelectInfo) => void
+  // onChange?: (date: DateType) => void
+  // onPanelChange?: (date: DateType, mode: CalendarMode) => void
+  // onSelect?: (date: DateType, selectInfo: SelectInfo) => void
 }
+
+export const calendarProps = [
+  'prefixCls',
+  'rootClass',
+  'classes',
+  'styles',
+  'locale',
+  'validRange',
+  'disabledDate',
+  'dateFullCellRender',
+  'dateCellRender',
+  'monthFullCellRender',
+  'monthCellRender',
+  'cellRender',
+  'fullCellRender',
+  'headerRender',
+  'value',
+  'defaultValue',
+  'mode',
+  'fullscreen',
+  'showWeek',
+]
 
 export interface CalendarSlots {
   dateFullCellRender?: (ctx: { date: AnyObject }) => any
