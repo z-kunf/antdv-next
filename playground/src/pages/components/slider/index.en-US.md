@@ -23,3 +23,17 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | SliderClassNamesType | - | - |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | SliderStylesType | - | - |
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| change | Callback function that is fired when the user changes the slider's value | (value: any) => void | - |
+| afterChange | - | (value: any) => void | - |
+| update:value | - | (value: any) => void | - |
+| changeComplete | Fire when `mouseup` or `keyup` is fired | (value: any) => void | - |

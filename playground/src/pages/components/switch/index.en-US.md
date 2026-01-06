@@ -23,3 +23,37 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| size | The size of the Switch, options: `default` `small` | SwitchSize | `default` | - |
+| checked | Determine whether the Switch is checked | boolean | false | - |
+| defaultChecked | Whether to set the initial state | boolean | false | - |
+| value | Alias for `checked` | boolean | - | 5.12.0 |
+| defaultValue | Alias for `defaultChecked` | boolean | - | 5.12.0 |
+| checkedChildren | The content to be shown when the state is checked | VueNode | - | - |
+| unCheckedChildren | The content to be shown when the state is unchecked | VueNode | - | - |
+| disabled | Disable switch | boolean | false | - |
+| loading | Loading state of switch | boolean | false | - |
+| autoFocus | - | boolean | - | - |
+| title | - | string | - | - |
+| tabIndex | - | number | - | - |
+| id | - | string | - | - |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | SwitchClassNamesType | - | - |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | SwitchStylesType | - | - |
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| change | Trigger when the checked state is changing | SwitchChangeEventHandler | - |
+| click | Trigger when clicked | SwitchClickEventHandler | - |
+| update:checked | - | (checked: boolean) => void | - |
+| update:value | - | (checked: boolean) => void | - |
+
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| checkedChildren | The content to be shown when the state is checked | () => any | - |
+| unCheckedChildren | The content to be shown when the state is unchecked | () => any | - |

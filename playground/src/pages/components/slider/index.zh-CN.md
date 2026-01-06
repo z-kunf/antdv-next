@@ -24,3 +24,17 @@ demo:
 ### 属性 {#property}
 
 通用属性参考：[通用属性](/docs/vue/common-props)
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | SliderClassNamesType | - | - |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | SliderStylesType | - | - |
+
+### 事件 {#events}
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| change | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入 | (value: any) => void | - |
+| afterChange | - | (value: any) => void | - |
+| update:value | - | (value: any) => void | - |
+| changeComplete | 与 `mouseup` 和 `keyup` 触发时机一致，把当前值作为参数传入 | (value: any) => void | - |

@@ -25,3 +25,46 @@ group:
 ### 属性 {#property}
 
 通用属性参考：[通用属性](/docs/vue/common-props)
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| mode | - | ModeType \| ModeType[] | - | - |
+| value | - | ColorValueType | - | - |
+| defaultValue | - | ColorValueType | - | - |
+| open | - | boolean | - | - |
+| disabled | - | boolean | - | - |
+| placement | - | TriggerPlacement | - | - |
+| trigger | - | TriggerType | - | - |
+| format | - | ColorFormatType | - | - |
+| defaultFormat | - | ColorFormatType | - | - |
+| allowClear | - | boolean | - | - |
+| presets | - | PresetsItem[] | - | - |
+| arrow | - | boolean \| { pointAtCenter: boolean } | - | - |
+| panelRender | - | (params: { panel: any, extra: { components: { Picker: any, Presets: any } } }) => any | - | - |
+| showText | - | boolean \| ((params: { color: AggregationColor }) => any) | - | - |
+| size | - | SizeType | - | - |
+| classes | - | ColorPickerClassNamesType | - | - |
+| styles | - | ColorPickerStylesType | - | - |
+| rootClass | - | string | - | - |
+| disabledAlpha | - | boolean | - | - |
+| disabledFormat | - | boolean | - | - |
+
+### 事件 {#events}
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| change | - | (value: AggregationColor, css: string) => void | - |
+| clear | - | () => void | - |
+| changeComplete | - | (value: AggregationColor) => void | - |
+| openChange | - | (open: boolean) => void | - |
+| update:open | - | (open: boolean) => void | - |
+| formatChange | - | (format?: ColorFormatType) => void | - |
+| update:value | - | (value: ColorValueType) => void | - |
+| update:format | - | (format: ColorFormatType) => void | - |
+
+### 插槽 {#slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| panelRender | - | (params: { panel: any, extra: { components: { Picker: any, Presets: any } } }) => any | - |
+| showText | - | (params: { color: AggregationColor }) => any | - |

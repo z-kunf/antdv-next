@@ -22,3 +22,31 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| classes | - | MasonryClassNamesType | - | - |
+| styles | - | MasonryStylesType | - | - |
+| gutter | Spacing between items | RowProps['gutter'] | - | - |
+| items | - | MasonryItemType[] | - | - |
+| itemRender | - | (itemInfo: MasonryItemType & { index: number }) => any | - | - |
+| columns | Number of columns in the masonry grid layout | number \| Partial<Record<Breakpoint, number>> | - | - |
+| fresh | Trigger when item layout order changed | boolean | - | - |
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| layoutChange | - | (sortInfo: { key: Key, column: number }[]) => void | - |
+
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| itemRender | - | (itemInfo: MasonryItemType & { index: number }) => any | - |
+
+### Methods {#methods}
+
+| Method | Description | Type | Version |
+| --- | --- | --- | --- |
+| nativeElement | - | HTMLDivElement | - |

@@ -22,3 +22,65 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 ### 属性 {#property}
 
 通用属性参考：[通用属性](/docs/vue/common-props)
+
+#### Card
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| title | 卡片标题 | VueNode | - | - |
+| extra | 卡片右上角的操作区域 | VueNode | - | - |
+| bordered | 是否有边框, 请使用 `variant` 替换 | boolean | true | - |
+| headStyle | Deprecated. | CSSProperties | - | - |
+| bodyStyle | Deprecated. | CSSProperties | - | - |
+| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false | - |
+| hoverable | 鼠标移过时可浮起 | boolean | false | - |
+| id | - | string | - | - |
+| size | card 的尺寸 | CardSize | `default` | - |
+| type | 卡片类型，可设置为 `inner` 或 不设置 | CardType | - | - |
+| cover | 卡片封面 | VueNode | - | - |
+| actions | 卡片操作组，位置在卡片底部 | VueNode[] | - | - |
+| tabList | 页签标题列表 | CardTabListType[] | - | - |
+| tabBarExtraContent | tab bar 上额外的元素 | VueNode \| { [key: string]: VueNode } | - | - |
+| activeTabKey | 当前激活页签的 key | string | - | - |
+| defaultActiveTabKey | 初始化选中页签的 key，如果没有设置 activeTabKey | string | `第一个页签的 key` | - |
+| tabProps | [Tabs](/components/tabs-cn#tabs) | Record<string, any> | - | - |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | CardClassNamesType | - | - |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | CardStylesType | - | - |
+| variant | 形态变体 | 'borderless' \| 'outlined' | `outlined` | 5.24.0 |
+
+#### CardGrid
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| prefixCls | - | string | - | - |
+| hoverable | 鼠标移过时可浮起 | boolean | false | - |
+
+#### CardMeta
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| prefixCls | - | string | - | - |
+| avatar | - | VueNode | - | - |
+| title | 卡片标题 | VueNode | - | - |
+| description | - | VueNode | - | - |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | CardMetaClassNamesType | - | - |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | CardMetaStylesType | - | - |
+
+### 事件 {#events}
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| tabChange | 页签切换的回调 | (key: string) => void | - |
+| update:activeTabKey | - | (key: string) => void | - |
+
+### 插槽 {#slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| title | 卡片标题 | () => any | - |
+| extra | 卡片右上角的操作区域 | () => any | - |
+| cover | 卡片封面 | () => any | - |
+| actions | 卡片操作组，位置在卡片底部 | () => any | - |
+| tabContentRender | - | TabsSlots['contentRender'] | - |
+| tabLabelRender | - | TabsSlots['labelRender'] | - |
+| tabBarExtraContent | tab bar 上额外的元素 | () => any | - |

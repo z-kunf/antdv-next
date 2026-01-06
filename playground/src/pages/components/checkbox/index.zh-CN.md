@@ -24,3 +24,66 @@ demo:
 ### 属性 {#property}
 
 通用属性参考：[通用属性](/docs/vue/common-props)
+
+#### Checkbox
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| defaultChecked | 初始是否选中 | boolean | false | - |
+| checked | 指定当前是否选中 | boolean | false | - |
+| disabled | 失效状态 | boolean | false | - |
+| title | - | string | - | - |
+| value | - | any | - | - |
+| tabIndex | - | number | - | - |
+| name | - | string | - | - |
+| id | - | string | - | - |
+| autoFocus | - | boolean | - | - |
+| type | - | string | - | - |
+| skipGroup | - | boolean | - | - |
+| required | - | boolean | - | - |
+| indeterminate | 设置 indeterminate 状态，只负责样式控制 | boolean | false | - |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | CheckboxClassNamesType | - | - |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | CheckboxStylesType | - | - |
+
+#### CheckboxGroup
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| options | - | (CheckboxOptionType \| string \| number)[] | - | - |
+| disabled | 失效状态 | boolean | false | - |
+| name | - | string | - | - |
+| defaultValue | - | any[] | - | - |
+| value | - | any[] | - | - |
+| labelRender | - | (params: { item: CheckboxOptionType, index: number }) => any | - | - |
+
+### 事件 {#events}
+
+#### Checkbox
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| change | 变化时的回调函数 | (checked: CheckboxChangeEvent) => void | - |
+| update:checked | - | (checked: any) => void | - |
+| update:value | - | (value: any) => void | - |
+| mouseenter | - | (event: MouseEvent) => void | - |
+| mouseleave | - | (event: MouseEvent) => void | - |
+| keypress | - | (event: KeyboardEvent) => void | - |
+| keydown | - | (event: KeyboardEvent) => void | - |
+| focus | 获得焦点时的回调 | (event: FocusEvent) => void | - |
+| blur | 失去焦点时的回调 | (event: FocusEvent) => void | - |
+| click | - | (event: MouseEvent) => void | - |
+
+#### CheckboxGroup
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| update:value | - | (value: any[]) => void | - |
+| change | 变化时的回调函数 | (checkedValue: any[]) => void | - |
+
+### 插槽 {#slots}
+
+#### CheckboxGroup
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| labelRender | - | (params: { item: CheckboxOptionType, index: number }) => any | - |

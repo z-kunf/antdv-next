@@ -24,3 +24,36 @@ demo:
 ### 属性 {#property}
 
 通用属性参考：[通用属性](/docs/vue/common-props)
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| loading | - | boolean | - | - |
+| status | 设置校验状态 | InputStatus | - | 4.19.0 |
+| options | 选项配置 | MentionsOptionProps[] | [] | 5.1.0 |
+| popupClassName | - | string | - | - |
+| variant | 形态变体 | Variant | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | MentionsClassNamesType | - | - |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | MentionsStylesType | - | - |
+| size | - | SizeType | - | - |
+| labelRender | - | (ctx: { option: MentionsOptionProps, index: number }) => any | - | - |
+| allowClear | 可以点击清除图标删除内容 | boolean \| {     clearIcon?: VueNode   } | false | 5.13.0 |
+| disabled | - | boolean | - | - |
+
+### 事件 {#events}
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| focus | 获得焦点时触发 | (event: FocusEvent) => void | - |
+| blur | 失去焦点时触发 | (event: FocusEvent) => void | - |
+| change | 值改变时触发 | (value: string) => void | - |
+| select | 选择选项时触发 | (option: MentionsOptionProps, prefix: string) => void | - |
+| popupScroll | 滚动时触发 | (event: Event) => void | 5.23.0 |
+| search | 搜索时触发 | (text: string, prefix: string) => void | - |
+| update:value | - | (value: string) => void | - |
+
+### 插槽 {#slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| suffix | - | () => any | - |
+| labelRender | - | (ctx: { option: MentionsOptionProps, index: number }) => any | - |

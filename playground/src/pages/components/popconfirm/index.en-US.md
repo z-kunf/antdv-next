@@ -23,3 +23,37 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| title | - | VueNode | - | - |
+| description | - | VueNode | - | - |
+| disabled | - | boolean | - | - |
+| okText | - | VueNode | - | - |
+| cancelText | - | VueNode | - | - |
+| okType | - | LegacyButtonType | - | - |
+| okButtonProps | - | ButtonProps | - | - |
+| cancelButtonProps | - | ButtonProps | - | - |
+| showCancel | - | boolean | - | - |
+| icon | - | VueNode | - | - |
+| classes | - | PopconfirmClassNamesType | - | - |
+| styles | - | PopconfirmStylesType | - | - |
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| openChange | - | (open: boolean, e?: MouseEvent \| KeyboardEvent) => void | - |
+| confirm | - | (e?: MouseEvent) => void | - |
+| cancel | - | (e?: MouseEvent) => void | - |
+| popupClick | - | (e: MouseEvent) => void | - |
+
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| title | - | () => any | - |
+| description | - | () => any | - |
+| icon | - | () => any | - |
+| okText | - | () => any | - |
+| cancelText | - | () => any | - |

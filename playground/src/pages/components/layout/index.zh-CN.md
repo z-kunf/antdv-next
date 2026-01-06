@@ -22,3 +22,18 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 ### 属性 {#property}
 
 通用属性参考：[通用属性](/docs/vue/common-props)
+
+#### Sider
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| prefixCls | - | string | - | - |
+| collapsible | - | boolean | - | - |
+| collapsed | - | boolean | - | - |
+| defaultCollapsed | - | boolean | - | - |
+| reverseArrow | - | boolean | - | - |
+| zeroWidthTriggerStyle | - | CSSProperties | - | - |
+| width | - | number \| string | - | - |
+| collapsedWidth | - | number \| string | - | - |
+| breakpoint | - | 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' | - | - |
+| theme | - | SiderTheme | - | - |

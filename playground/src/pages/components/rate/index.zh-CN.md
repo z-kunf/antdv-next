@@ -24,3 +24,21 @@ demo:
 ### 属性 {#property}
 
 通用属性参考：[通用属性](/docs/vue/common-props)
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| rootClass | - | string | - | - |
+| size | 星星尺寸 | 'small' \| 'middle' \| 'large' | 'middle' | - |
+| tooltips | 自定义每项的提示信息 | (TooltipProps \| string)[] | - | - |
+
+### 事件 {#events}
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| update:value | - | (value: number) => void | - |
+| change | 选择时的回调 | (value: number) => void | - |
+| hoverChange | 鼠标经过时数值变化的回调 | (value: number) => void | - |
+| focus | 获取焦点时的回调 | () => void | - |
+| blur | 失去焦点时的回调 | () => void | - |
+| keydown | - | (e: KeyboardEvent) => void | - |
+| mouseleave | - | (e: FocusEvent) => void | - |

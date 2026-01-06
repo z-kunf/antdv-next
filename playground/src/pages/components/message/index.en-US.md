@@ -24,3 +24,30 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| content | - | VueNode | - | - |
+| duration | - | number | - | - |
+| type | - | NoticeType | - | - |
+| onClose | - | () => void | - | - |
+| icon | - | VueNode | - | - |
+| key | - | Key | - | - |
+| style | - | CSSProperties | - | - |
+| class | - | string | - | - |
+| classes | - | ArgsClassNamesType | - | - |
+| styles | - | ArgsStylesType | - | - |
+| onClick | - | (e: MouseEvent) => void | - | - |
+| pauseOnHover | - | boolean | - | - |
+
+### Methods {#methods}
+
+| Method | Description | Type | Version |
+| --- | --- | --- | --- |
+| info | - | TypeOpen | - |
+| success | - | TypeOpen | - |
+| error | - | TypeOpen | - |
+| warning | - | TypeOpen | - |
+| loading | - | TypeOpen | - |
+| open | - | (args: ArgsProps) => MessageType | - |
+| destroy | - | (key?: Key) => void | - |

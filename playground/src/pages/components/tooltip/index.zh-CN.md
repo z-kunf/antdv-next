@@ -24,3 +24,52 @@ demo:
 ### 属性 {#property}
 
 通用属性参考：[通用属性](/docs/vue/common-props)
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| align | - | AlignType | - | - |
+| arrow | - | boolean \| { pointAtCenter?: boolean } | - | - |
+| autoAdjustOverflow | - | boolean \| AdjustOverflow | - | - |
+| color | 设置背景颜色，使用该属性后内部文字颜色将自适应 | LiteralUnion<PresetColorType> | - | 5.27.0 |
+| open | - | boolean | - | - |
+| defaultOpen | - | boolean | - | - |
+| getPopupContainer | - | (triggerNode: HTMLElement) => HTMLElement | - | - |
+| destroyOnHidden | - | boolean | - | - |
+| zIndex | - | number | - | - |
+| placement | - | TooltipPlacement | - | - |
+| trigger | - | ActionType \| ActionType[] | - | - |
+| fresh | - | boolean | - | - |
+| mouseEnterDelay | - | number | - | - |
+| mouseLeaveDelay | - | number | - | - |
+| classes | 语义化结构 class | TooltipClassNamesType | - | - |
+| styles | 语义化结构 style | TooltipStylesType | - | - |
+| getTooltipContainer | - | (node: HTMLElement) => HTMLElement | - | - |
+| motion | - | VcTooltipProps['motion'] | - | - |
+| afterOpenChange | - | (open: boolean) => void | - | - |
+| builtinPlacements | - | typeof Placements | - | - |
+| title | 提示文字 | VueNode | - | - |
+| overlay | - | VueNode | - | - |
+| openClass | - | string | - | - |
+| unique | - | boolean | - | - |
+
+### 事件 {#events}
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| openChange | - | (open: boolean) => void | - |
+| update:open | - | (open: boolean) => void | - |
+
+### 插槽 {#slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| title | 提示文字 | () => any | - |
+
+### 方法 {#methods}
+
+| 方法 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| forcePopupAlign | Deprecated. | VoidFunction | - |
+| forceAlign | - | VoidFunction | - |
+| nativeElement | Wrapped dom element. Not promise valid if child not support ref | HTMLElement | - |
+| popupElement | Popup dom element | HTMLDivElement | - |

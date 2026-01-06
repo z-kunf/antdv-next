@@ -22,3 +22,22 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-0kxQrbHx2kAAA
 ### 属性 {#property}
 
 通用属性参考：[通用属性](/docs/vue/common-props)
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| icon | 自定义 icon | VueNode | - | - |
+| status | 结果的状态，决定图标和颜色 | ResultStatusType | `info` | - |
+| title | title 文字 | VueNode | - | - |
+| subTitle | subTitle 文字 | VueNode | - | - |
+| extra | 操作区 | VueNode | - | - |
+| classes | 自定义组件内部各语义化结构的类名。支持对象或函数 | ResultClassNamesType | - | - |
+| styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | ResultStylesType | - | - |
+
+### 插槽 {#slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| icon | 自定义 icon | () => any | - |
+| title | title 文字 | () => any | - |
+| subTitle | subTitle 文字 | () => any | - |
+| extra | 操作区 | () => any | - |

@@ -61,4 +61,48 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAA
 
 ## API
 
-通用属性说明请见：[通用属性](/docs/vue/common-props)
+### 属性 {#property}
+
+通用属性参考：[通用属性](/docs/vue/common-props)
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TableClassNamesType<RecordType> | - | - |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TableStylesType<RecordType> | - | - |
+| dropdownPrefixCls | - | string | - | - |
+| dataSource | 数据数组 | VcTableProps<RecordType>['data'] | - | - |
+| columns | 表格列的配置描述，具体项见下表 | ColumnsType<RecordType> | - | - |
+| pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination-cn) 文档，设为 false 时不展示和进行分页 | false \| TablePaginationConfig | - | - |
+| loading | 页面是否加载中 | boolean \| SpinProps | false | - |
+| size | 表格大小 | SizeType | `large` | - |
+| bordered | 是否展示外边框和列边框 | boolean | false | - |
+| locale | 默认文案设置，目前包括排序、过滤、空数据文案 | TableLocale | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) | - |
+| rowSelection | 表格行是否可选择，[配置项](#rowselection) | TableRowSelection<RecordType> | - | - |
+| getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | GetPopupContainer | () => TableHtmlElement | - |
+| scroll | 表格是否可滚动，也可以指定滚动区域的宽、高，[配置项](#scroll) | VcTableProps<RecordType>['scroll'] & { scrollToFirstRowOnChange?: boolean } | - | - |
+| sortDirections | 支持的排序方式，取值为 `ascend` `descend` | SortOrder[] | \[`ascend`, `descend`] | - |
+| showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示。当参数类型为对象时，将被设置为 Tooltip 的属性 | boolean \| SorterTooltipProps | { target: 'full-header' } | 5.16.0 |
+| virtual | 支持虚拟列表 | boolean | - | 5.9.0 |
+
+### 事件 {#events}
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| change | 分页、排序、筛选变化时触发 | (     pagination: TablePaginationConfig,     filters: Record<string, FilterValue \| null>,     sorter: SorterResult<RecordType> \| SorterResult<RecordType>[],     extra: TableCurrentDataSource<RecordType>,   ) => void | - |
+| update:expandedRowKeys | - | (keys: readonly Key[]) => void | - |
+| scroll | 表格是否可滚动，也可以指定滚动区域的宽、高，[配置项](#scroll) | NonNullable<VcTableProps['onScroll']> | - |
+
+### 插槽 {#slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| title | 表格标题 | (data: readonly RecordType[]) => any | - |
+| footer | 表格尾部 | (data: readonly RecordType[]) => any | - |
+| summary | 总结栏 | (data: readonly RecordType[]) => any | - |
+| emptyText | - | () => any | - |
+| expandIcon | - | (info: any) => any | - |
+| expandedRowRender | - | (ctx: { record: RecordType, index: number, indent: number, expanded: boolean }) => any | - |
+| headerCell | - | (ctx: { column: ColumnType<RecordType>, index: number, text: any }) => any | - |
+| bodyCell | - | (ctx: { column: ColumnType<RecordType>, index: number, text: any, record: RecordType }) => any | - |
+| filterDropdown | - | (ctx: FilterDropdownProps & { column: ColumnType<RecordType> }) => any | - |
+| filterIcon | - | (ctx: { column: ColumnType<RecordType>, filtered: boolean }) => any | - |

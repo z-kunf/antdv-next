@@ -30,3 +30,48 @@ demo:
 </demo-group>
 
 ## API
+
+### 属性 {#property}
+
+通用属性参考：[通用属性](/docs/vue/common-props)
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| effect | 动画效果函数 | CarouselEffect | `scrollx` | - |
+| id | - | string | - | - |
+| slickGoTo | - | number | - | - |
+| dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` `start` `end`，请使用 `dotPlacement` 替换 | DotPlacement \| 'left' \| 'right' | `bottom` | - |
+| dotPlacement | 面板指示点位置，可选 `top` `bottom` `start` `end` | DotPlacement | `bottom` | - |
+| dots | 是否显示面板指示点，如果为 `object` 则可以指定 `dotsClass` | boolean \| { class?: string } | true | - |
+| waitForAnimate | 是否等待切换动画 | boolean | false | - |
+| autoplay | 是否自动切换，如果为 object 可以指定 `dotDuration` 来展示指示点进度条 | boolean \| { dotDuration?: boolean } | false | dotDuration: 5.24.0 |
+| prevArrow | - | VueNode | - | - |
+| nextArrow | - | VueNode | - | - |
+
+### 事件 {#events}
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| init | - | NonNullable<Settings['onInit']> | - |
+| reInit | - | NonNullable<Settings['onReInit']> | - |
+| edge | - | NonNullable<Settings['onEdge']> | - |
+| swipe | - | NonNullable<Settings['onSwipe']> | - |
+| lazyLoad | - | NonNullable<Settings['onLazyLoad']> | - |
+| lazyLoadError | - | NonNullable<Settings['onLazyLoadError']> | - |
+
+### 插槽 {#slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| prevArrow | - | () => any | - |
+| nextArrow | - | () => any | - |
+
+### 方法 {#methods}
+
+| 方法 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| goTo | - | (slide: number, dontAnimate?: boolean) => void | - |
+| next | - | () => void | - |
+| prev | - | () => void | - |
+| autoPlay | - | (playType?: 'update' \| 'leave' \| 'blur') => void | - |
+| innerSlider | - | any | - |

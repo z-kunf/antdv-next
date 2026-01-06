@@ -23,3 +23,23 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| title | - | VueNode | - | - |
+| content | - | VueNode | - | - |
+| classes | - | PopoverClassNamesType | - | - |
+| styles | - | PopoverStylesType | - | - |
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| openChange | - | (open: boolean, e?: MouseEvent \| KeyboardEvent) => void | - |
+
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| title | - | () => any | - |
+| content | - | () => any | - |

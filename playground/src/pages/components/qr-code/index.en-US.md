@@ -35,37 +35,34 @@ Used when the text needs to be converted into a QR Code.
 
 ## API
 
+### Property {#property}
+
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property     | Description | Type | Default | Version |
-|:-------------| :-- | :-- | :-- | :-- |
-| value        | scanned text | `string \| string[]` | `string[]` | |
-| type         | render type | `canvas \| svg` | `canvas` | |
-| icon         | include image url (only image link are supported) | string | - | |
-| size         | QRCode size | number | 160 | |
-| iconSize     | include image size | number \| { width: number; height: number } | 40 | |
-| color        | QRCode Color | string | `#000` | |
-| classes      | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | |
-| bgColor      | QRCode Background Color | string | `transparent` | |
-| bordered     | Whether has border style | boolean | `true` | |
-| errorLevel   | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H'` | `M` | |
-| boostLevel   | If enabled, the Error Correction Level of the result may be higher than the specified Error Correction Level | `boolean` | true | |
-| status       | QRCode status | `active \| expired \| loading \| scanned` | `active` | |
-| statusRender | custom status render | `(info: [StatusRenderInfo](/components/qr-code-cn#statusrenderinfo)) => React.ReactNode` | - | 5.20.0 |
-| styles       | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | |
-| type         | render type | `canvas \| svg` | `canvas` | |
-| value        | scanned text | string | - | |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| type | - | 'canvas' \| 'svg' | - | - |
+| icon | - | string | - | - |
+| iconSize | - | number \| { width: number, height: number } | - | - |
+| bordered | - | boolean | - | - |
+| errorLevel | - | 'L' \| 'M' \| 'Q' \| 'H' | - | - |
+| status | - | QRStatus | - | - |
+| statusRender | - | (info: StatusRenderInfo) => any | - | - |
+| color | - | any | - | - |
+| classes | - | QRCodeClassNamesType | - | - |
+| styles | - | QRCodeStylesType | - | - |
 
-### StatusRenderInfo
+### Events {#events}
 
-```typescript
-// type StatusRenderInfo = {
-//   status: QRStatus;
-//   locale: Locale['QRCode'];
-//   onRefresh?: () => void;
-// };
-```
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| refresh | - | () => void | - |
 
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| statusRender | - | (info: StatusRenderInfo) => any | - |
 ## Semantic DOM
 
 <!-- <code src="./demo/_semantic.vue" simplify="true"></code> -->

@@ -23,3 +23,21 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| rootClass | - | string | - | - |
+| size | Star size | 'small' \| 'middle' \| 'large' | 'middle' | - |
+| tooltips | Customize tooltip by each character | (TooltipProps \| string)[] | - | - |
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| update:value | - | (value: number) => void | - |
+| change | Callback when select value | (value: number) => void | - |
+| hoverChange | Callback when hover item | (value: number) => void | - |
+| focus | Callback when component get focus | () => void | - |
+| blur | Callback when component lose focus | () => void | - |
+| keydown | - | (e: KeyboardEvent) => void | - |
+| mouseleave | - | (e: FocusEvent) => void | - |

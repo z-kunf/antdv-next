@@ -30,3 +30,48 @@ demo:
 </demo-group>
 
 ## API
+
+### Property {#property}
+
+Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| effect | Transition effect | CarouselEffect | `scrollx` | - |
+| id | - | string | - | - |
+| slickGoTo | - | number | - | - |
+| dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` `start` `end`, Please use `dotPlacement` instead | DotPlacement \| 'left' \| 'right' | `bottom` | - |
+| dotPlacement | The position of the dots, which can be one of `top` `bottom` `start` `end` | DotPlacement | `bottom` | - |
+| dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` | boolean \| { class?: string } | true | - |
+| waitForAnimate | Whether to wait for the animation when switching | boolean | false | - |
+| autoplay | Whether to scroll automatically, you can specify `autoplay={{ dotDuration: true }}` to display the progress bar | boolean \| { dotDuration?: boolean } | false | dotDuration: 5.24.0 |
+| prevArrow | - | VueNode | - | - |
+| nextArrow | - | VueNode | - | - |
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| init | - | NonNullable<Settings['onInit']> | - |
+| reInit | - | NonNullable<Settings['onReInit']> | - |
+| edge | - | NonNullable<Settings['onEdge']> | - |
+| swipe | - | NonNullable<Settings['onSwipe']> | - |
+| lazyLoad | - | NonNullable<Settings['onLazyLoad']> | - |
+| lazyLoadError | - | NonNullable<Settings['onLazyLoadError']> | - |
+
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| prevArrow | - | () => any | - |
+| nextArrow | - | () => any | - |
+
+### Methods {#methods}
+
+| Method | Description | Type | Version |
+| --- | --- | --- | --- |
+| goTo | - | (slide: number, dontAnimate?: boolean) => void | - |
+| next | - | () => void | - |
+| prev | - | () => void | - |
+| autoPlay | - | (playType?: 'update' \| 'leave' \| 'blur') => void | - |
+| innerSlider | - | any | - |

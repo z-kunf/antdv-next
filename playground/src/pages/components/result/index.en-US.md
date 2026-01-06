@@ -21,3 +21,22 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-0kxQrbHx2kAAA
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| icon | Custom back icon | VueNode | - | - |
+| status | Result status, decide icons and colors | ResultStatusType | `info` | - |
+| title | The title | VueNode | - | - |
+| subTitle | The subTitle | VueNode | - | - |
+| extra | Operating area | VueNode | - | - |
+| classes | Customize class for each semantic structure inside the component. Supports object or function | ResultClassNamesType | - | - |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | ResultStylesType | - | - |
+
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| icon | Custom back icon | () => any | - |
+| title | The title | () => any | - |
+| subTitle | The subTitle | () => any | - |
+| extra | Operating area | () => any | - |

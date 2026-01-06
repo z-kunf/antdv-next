@@ -23,3 +23,41 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+#### Timeline
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| pending | Set the last ghost node's existence or its content. Use `item.loading` instead | VueNode | false | - |
+| pendingDot | Set the dot of the last ghost node when pending is true. Use `item.icon` instead | VueNode | &lt;LoadingOutlined /&gt; | - |
+| reverse | Whether reverse nodes or not | boolean | false | - |
+| mode | By sending `alternate` the timeline will distribute the nodes to the left and right | 'left' \| 'alternate' \| 'right' | `start` | - |
+| items | Each node of timeline | TimelineItemProps[] | - | - |
+| dotRender | - | (params: { item: TimelineItemProps, index: number }) => void | - | - |
+| labelRender | - | (params: { item: TimelineItemProps, index: number }) => void | - | - |
+| contentRender | - | (params: { item: TimelineItemProps, index: number }) => void | - | - |
+
+#### TimelineItem
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| key | - | Key | - | - |
+| prefixCls | - | string | - | - |
+| class | - | string | - | - |
+| color | - | LiteralUnion<Color> | - | - |
+| dot | - | VueNode | - | - |
+| pending | Set the last ghost node's existence or its content. Use `item.loading` instead | boolean | false | - |
+| position | - | string | - | - |
+| style | - | CSSProperties | - | - |
+| label | - | VueNode | - | - |
+| children | - | VueNode | - | - |
+
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| pending | Set the last ghost node's existence or its content. Use `item.loading` instead | () => void | - |
+| pendingDot | Set the dot of the last ghost node when pending is true. Use `item.icon` instead | () => void | - |
+| dotRender | - | (params: { item: TimelineItemProps, index: number }) => void | - |
+| labelRender | - | (params: { item: TimelineItemProps, index: number }) => void | - |
+| contentRender | - | (params: { item: TimelineItemProps, index: number }) => void | - |

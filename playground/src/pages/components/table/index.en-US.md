@@ -60,4 +60,48 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAA
 
 ## API
 
-Common props ref: [Common props](/docs/vue/common-props)
+### Property {#property}
+
+Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | TableClassNamesType<RecordType> | - | - |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | TableStylesType<RecordType> | - | - |
+| dropdownPrefixCls | - | string | - | - |
+| dataSource | Data record array to be displayed | VcTableProps<RecordType>['data'] | - | - |
+| columns | Columns of table | ColumnsType<RecordType> | - | - |
+| pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | false \| TablePaginationConfig | - | - |
+| loading | Loading status of table | boolean \| SpinProps | false | - |
+| size | Size of table | SizeType | `large` | - |
+| bordered | Whether to show all table borders | boolean | false | - |
+| locale | The i18n text including filter, sort, empty text, etc | TableLocale | [Default Value](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/en_US.tsx#L19-L37) | - |
+| rowSelection | Row selection [config](#rowselection) | TableRowSelection<RecordType> | - | - |
+| getPopupContainer | The render container of dropdowns in table | GetPopupContainer | () => TableHtmlElement | - |
+| scroll | Whether the table can be scrollable, [config](#scroll) | VcTableProps<RecordType>['scroll'] & { scrollToFirstRowOnChange?: boolean } | - | - |
+| sortDirections | Supported sort way, could be `ascend`, `descend` | SortOrder[] | \[`ascend`, `descend`] | - |
+| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| SorterTooltipProps | { target: 'full-header' } | 5.16.0 |
+| virtual | Support virtual list | boolean | - | 5.9.0 |
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| change | Callback executed when pagination, filters or sorter is changed | (     pagination: TablePaginationConfig,     filters: Record<string, FilterValue \| null>,     sorter: SorterResult<RecordType> \| SorterResult<RecordType>[],     extra: TableCurrentDataSource<RecordType>,   ) => void | - |
+| update:expandedRowKeys | - | (keys: readonly Key[]) => void | - |
+| scroll | Whether the table can be scrollable, [config](#scroll) | NonNullable<VcTableProps['onScroll']> | - |
+
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| title | Table title renderer | (data: readonly RecordType[]) => any | - |
+| footer | Table footer renderer | (data: readonly RecordType[]) => any | - |
+| summary | Summary content | (data: readonly RecordType[]) => any | - |
+| emptyText | - | () => any | - |
+| expandIcon | - | (info: any) => any | - |
+| expandedRowRender | - | (ctx: { record: RecordType, index: number, indent: number, expanded: boolean }) => any | - |
+| headerCell | - | (ctx: { column: ColumnType<RecordType>, index: number, text: any }) => any | - |
+| bodyCell | - | (ctx: { column: ColumnType<RecordType>, index: number, text: any, record: RecordType }) => any | - |
+| filterDropdown | - | (ctx: FilterDropdownProps & { column: ColumnType<RecordType> }) => any | - |
+| filterIcon | - | (ctx: { column: ColumnType<RecordType>, filtered: boolean }) => any | - |

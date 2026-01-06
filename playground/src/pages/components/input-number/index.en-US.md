@@ -23,3 +23,52 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| size | The height of input box | SizeType | - | - |
+| status | Set validation status | InputStatus | - | - |
+| disabled | If the input is disabled | boolean | false | - |
+| addonBefore | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | VueNode | - | - |
+| addonAfter | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | VueNode | - | - |
+| prefix | The prefix icon for the Input | VueNode | - | - |
+| suffix | The suffix icon for the Input | VueNode | - | 5.20.0 |
+| bordered | Deprecated. | boolean | - | - |
+| variant | Variants of Input | Variant | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | InputNumberClassNamesType | - | - |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | InputNumberStylesType | - | - |
+| controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| { upIcon?: VueNode, downIcon?: VueNode } | - | - |
+| type | - | 'number' \| 'text' | - | - |
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| change | The callback triggered when the value is changed | (value: any) => void | - |
+| update:value | - | (value: any) => void | - |
+| input | - | (text: string) => void | - |
+| pressEnter | The callback function that is triggered when Enter key is pressed | (e: KeyboardEvent) => void | - |
+| step | The number to which the current value is increased or decreased. It can be an integer or decimal | (value: any, info: InputNumberStepContext) => void | - |
+| mousedown | - | (e: MouseEvent) => void | - |
+| click | - | (e: MouseEvent) => void | - |
+| mouseup | - | (e: MouseEvent) => void | - |
+| mouseleave | - | (e: MouseEvent) => void | - |
+| mousemove | - | (e: MouseEvent) => void | - |
+| mouseenter | - | (e: MouseEvent) => void | - |
+| mouseout | - | (e: MouseEvent) => void | - |
+| focus | - | (e: FocusEvent) => void | - |
+| blur | - | (e: FocusEvent) => void | - |
+| keydown | - | (e: KeyboardEvent) => void | - |
+| keyup | - | (e: KeyboardEvent) => void | - |
+| compositionstart | - | (e: CompositionEvent) => void | - |
+| compositionend | - | (e: CompositionEvent) => void | - |
+| beforeinput | - | (e: InputEvent) => void | - |
+
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| prefix | The prefix icon for the Input | () => any | - |
+| suffix | The suffix icon for the Input | () => any | 5.20.0 |
+| addonBefore | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | () => any | - |
+| addonAfter | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | () => any | - |

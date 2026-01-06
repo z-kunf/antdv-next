@@ -21,3 +21,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| active | Show animation effect | boolean | false | - |
+| loading | Display the skeleton when true | boolean | - | - |
+| avatar | Show avatar placeholder | SkeletonAvatarProps \| boolean | false | - |
+| title | Show title placeholder | SkeletonTitleProps \| boolean | true | - |
+| paragraph | Show paragraph placeholder | SkeletonParagraphProps \| boolean | true | - |
+| round | Show paragraph and title radius when true | boolean | false | - |
+| classes | - | SkeletonClassNamesType | - | - |
+| styles | - | SkeletonStylesType | - | - |

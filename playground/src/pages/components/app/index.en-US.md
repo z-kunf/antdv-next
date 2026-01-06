@@ -23,3 +23,9 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| message | Global config for Message | MessageConfig | - | 5.3.0 |
+| notification | Global config for Notification | NotificationConfig | - | 5.3.0 |
+| component | Config render element, if `false` will not create DOM node | any | div | 5.11.0 |

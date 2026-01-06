@@ -23,3 +23,31 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| options | Set children optional | SegmentedOptions | [] | - |
+| rootClass | - | string | - | - |
+| block | Option to fit width to its parent\'s width | boolean | false | - |
+| size | The size of the Segmented. | SizeType | `middle` | - |
+| vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` | 5.21.0 |
+| orientation | Orientation | Orientation | `horizontal` | - |
+| classes | Customize class for each semantic structure inside the Segmented component. Supports object or function. | SegmentedClassNamesType | - | - |
+| styles | Customize inline style for each semantic structure inside the Segmented component. Supports object or function. | SegmentedStylesType | - | - |
+| shape | shape of Segmented | 'default' \| 'round' | `default` | 5.24.0 |
+| iconRender | - | (option: SegmentedLabeledOption) => any | - | - |
+| labelRender | - | (option: SegmentedLabeledOption) => any | - | - |
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| change | The callback function that is triggered when the state changes | (value: RcSegmentedValue) => void | - |
+| update:value | - | (value: RcSegmentedValue) => void | - |
+
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| iconRender | - | (option: SegmentedLabeledOption) => any | - |
+| labelRender | - | (option: SegmentedLabeledOption) => any | - |

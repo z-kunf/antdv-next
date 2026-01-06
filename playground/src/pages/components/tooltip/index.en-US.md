@@ -23,3 +23,52 @@ demo:
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| align | - | AlignType | - | - |
+| arrow | - | boolean \| { pointAtCenter?: boolean } | - | - |
+| autoAdjustOverflow | - | boolean \| AdjustOverflow | - | - |
+| color | The background color. After using this attribute, the internal text color will adapt automatically | LiteralUnion<PresetColorType> | - | 5.27.0 |
+| open | - | boolean | - | - |
+| defaultOpen | - | boolean | - | - |
+| getPopupContainer | - | (triggerNode: HTMLElement) => HTMLElement | - | - |
+| destroyOnHidden | - | boolean | - | - |
+| zIndex | - | number | - | - |
+| placement | - | TooltipPlacement | - | - |
+| trigger | - | ActionType \| ActionType[] | - | - |
+| fresh | - | boolean | - | - |
+| mouseEnterDelay | - | number | - | - |
+| mouseLeaveDelay | - | number | - | - |
+| classes | Semantic DOM class | TooltipClassNamesType | - | - |
+| styles | Semantic DOM style | TooltipStylesType | - | - |
+| getTooltipContainer | - | (node: HTMLElement) => HTMLElement | - | - |
+| motion | - | VcTooltipProps['motion'] | - | - |
+| afterOpenChange | - | (open: boolean) => void | - | - |
+| builtinPlacements | - | typeof Placements | - | - |
+| title | The text shown in the tooltip | VueNode | - | - |
+| overlay | - | VueNode | - | - |
+| openClass | - | string | - | - |
+| unique | - | boolean | - | - |
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| openChange | - | (open: boolean) => void | - |
+| update:open | - | (open: boolean) => void | - |
+
+### Slots {#slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| title | The text shown in the tooltip | () => any | - |
+
+### Methods {#methods}
+
+| Method | Description | Type | Version |
+| --- | --- | --- | --- |
+| forcePopupAlign | Deprecated. | VoidFunction | - |
+| forceAlign | - | VoidFunction | - |
+| nativeElement | Wrapped dom element. Not promise valid if child not support ref | HTMLElement | - |
+| popupElement | Popup dom element | HTMLDivElement | - |

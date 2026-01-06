@@ -29,3 +29,15 @@ Please note that Affix should not cover other content on the page, especially wh
 ### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| offsetTop | Offset from the top of the viewport (in pixels) | number | 0 | - |
+| offsetBottom | Offset from the bottom of the viewport (in pixels) | number | - | - |
+| target | Specifies the scrollable area DOM node | () => Window \| HTMLElement \| null | () => window | - |
+
+### Methods {#methods}
+
+| Method | Description | Type | Version |
+| --- | --- | --- | --- |
+| updatePosition | - | ReturnType<typeof throttleByAnimationFrame> | - |

@@ -24,3 +24,9 @@ demo:
 ### 属性 {#property}
 
 通用属性参考：[通用属性](/docs/vue/common-props)
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| message | App 内 Message 的全局配置 | MessageConfig | - | 5.3.0 |
+| notification | App 内 Notification 的全局配置 | NotificationConfig | - | 5.3.0 |
+| component | 设置渲染元素，为 `false` 则不创建 DOM 节点 | any | div | 5.11.0 |
