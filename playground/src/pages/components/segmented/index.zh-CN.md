@@ -17,7 +17,7 @@ demo:
 - 用于展示多个选项并允许用户选择其中单个选项；
 - 当切换选中选项时，关联区域的内容会发生变化
 
-## 示例 {#examples}
+## 代码演示 {#examples}
 
 <demo-group>
   <demo src="./demo/basic.vue">基本</demo>

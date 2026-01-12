@@ -42,20 +42,20 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 #### Anchor
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| affix | Fixed mode of Anchor | boolean \| Omit&lt;AffixProps, 'offsetTop' \| 'target' \| 'children'&gt; | true | |
-| bounds | Bounding distance of anchor area | number | 5 | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: { props })=> Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
-| getContainer | Scrolling container | () =&gt; HTMLElement | () =&gt; window | - |
-| getCurrentAnchor | Customize the anchor highlight | (activeLink: string) =&gt; string | - | - |
-| offsetTop | Pixels to offset from top when calculating position of scroll | number | - | - |
-| showInkInFixed | Whether show ink-square when `affix={false}` | boolean | false | - |
+| Property | Description | Type                                                                                                                                       | Default | Version |
+| --- | --- |--------------------------------------------------------------------------------------------------------------------------------------------| --- | --- |
+| affix | Fixed mode of Anchor | boolean \| Omit&lt;AffixProps, 'offsetTop' \| 'target' \| 'children'&gt;                                                                   | true | |
+| bounds | Bounding distance of anchor area | number                                                                                                                                     | 5 | - |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: { props })=> Record&lt;[SemanticDOM](#semantic-dom), string&gt;               | - | - |
+| getContainer | Scrolling container | () =&gt; HTMLElement                                                                                                                       | () =&gt; window | - |
+| getCurrentAnchor | Customize the anchor highlight | (activeLink: string) =&gt; string                                                                                                          | - | - |
+| offsetTop | Pixels to offset from top when calculating position of scroll | number                                                                                                                                     | - | - |
+| showInkInFixed | Whether show ink-square when `affix={false}` | boolean                                                                                                                                    | false | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: { props })=> Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#anchor-demo-targetoffset) | number | - | - |
-| items | Data configuration option content, support nesting through children | { key, href, title, target, children }\[] [see](#anchoritem) | - |  |
-| direction | Set Anchor direction | `vertical` \| `horizontal` | `vertical` |  |
-| replace | Replace items' href in browser history instead of pushing it | boolean | false |  |
+| targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#anchor-demo-targetoffset) | number                                                                                                                                     | - | - |
+| items | Data configuration option content, support nesting through children | \{ key, href, title, target, children \}\[] [see](#anchoritem)                                                                             | - |  |
+| direction | Set Anchor direction | `vertical` \| `horizontal`                                                                                                                 | `vertical` |  |
+| replace | Replace items' href in browser history instead of pushing it | boolean                                                                                                                                    | false |  |
 
 #### AnchorItem
 
@@ -80,10 +80,10 @@ We recommend using the items form instead.
 
 ### Events {#events}
 
-| Event | Description | Type | Version |
-| --- | --- | --- | --- |
-| click | Set the handler to handle `click` event | (e: MouseEvent, link: { title: VueNode, href: string }) =&gt; void | - |
-| change | Listening for anchor link change | (currentActiveLink: string) =&gt; void | - |
+| Event | Description | Type                                                                 | Version |
+| --- | --- |----------------------------------------------------------------------| --- |
+| click | Set the handler to handle `click` event | (e: MouseEvent, link: \{ title: VueNode, href: string \}) =&gt; void | - |
+| change | Listening for anchor link change | (currentActiveLink: string) =&gt; void                               | - |
 
 ### Slots {#slots}
 
