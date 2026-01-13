@@ -56,7 +56,6 @@ demo:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| className | 自定义类名 | string | - | - |
 | dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown) | - | - |
 | href | 链接的目的地，不能和 `path` 共用 | string | - | - |
 | path | 拼接路径，每一层都会拼接前一个 `path` 信息。不能和 `href` 共用 | string | - | - |

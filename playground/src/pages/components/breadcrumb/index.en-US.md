@@ -55,7 +55,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| className | The additional css class | string | - | - |
 | dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - | - |
 | href | Target of hyperlink. Can not work with path | string | - | - |
 | path | Connected path. Each path will connect with prev one. Can not work with href | string | - | - |
