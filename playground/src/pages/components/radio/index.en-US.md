@@ -13,9 +13,22 @@ demo:
 
 ## When To Use {#when-to-use}
 
+- Used to select a single state from multiple options.
+- The difference from Select is that Radio is visible to the user and can facilitate the comparison of choice, which means there shouldn't be too many of them.
+
 ## Examples {#examples}
 
 <demo-group>
+  <demo src="./demo/basic.vue">Basic</demo>
+  <demo src="./demo/disabled.vue">disabled</demo>
+  <demo src="./demo/radiogroup.vue">Radio Group</demo>
+  <demo src="./demo/radiogroup-more.vue">Vertical Radio.Group</demo>
+  <demo src="./demo/radiogroup-block.vue">Block Radio.Group</demo>
+  <demo src="./demo/radiogroup-options.vue">Radio.Group group - optional</demo>
+  <demo src="./demo/radiobutton.vue">radio style</demo>
+  <demo src="./demo/radiogroup-with-name.vue">Radio.Group with name</demo>
+  <demo src="./demo/size.vue">Size</demo>
+  <demo src="./demo/radiobutton-solid.vue">Solid radio button</demo>
 </demo-group>
 
 ## API

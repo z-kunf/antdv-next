@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+大中小三种组合，可以和表单输入框进行对应配合。
+</docs>
+
+<docs lang="en-US">
+There are three sizes available: large, medium, and small. It can coordinate with input box.
+</docs>
+
 <script setup lang="ts">
 import { shallowRef } from 'vue'
 

@@ -14,9 +14,22 @@ demo:
 
 ## 何时使用 {#when-to-use}
 
+- 用于在多个备选项中选中单个状态。
+- 和 Select 的区别是，Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。
+
 ## 示例 {#examples}
 
 <demo-group>
+  <demo src="./demo/basic.vue">基本</demo>
+  <demo src="./demo/disabled.vue">不可用</demo>
+  <demo src="./demo/radiogroup.vue">单选组合</demo>
+  <demo src="./demo/radiogroup-more.vue">Radio.Group 垂直</demo>
+  <demo src="./demo/radiogroup-block.vue">Block 单选组合</demo>
+  <demo src="./demo/radiogroup-options.vue">Radio.Group 组合 - 配置方式</demo>
+  <demo src="./demo/radiobutton.vue">按钮样式</demo>
+  <demo src="./demo/radiogroup-with-name.vue">单选组合 - 配合 name 使用</demo>
+  <demo src="./demo/size.vue">大小</demo>
+  <demo src="./demo/radiobutton-solid.vue">填底的按钮样式</demo>
 </demo-group>
 
 ## API
