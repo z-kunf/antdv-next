@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-可以同时展开多个面板，这个例子默认展开了第一个。
+你可以通过 `showArrow=false` 隐藏折叠面板的箭头图标。
 </docs>
 
 <docs lang="en-US">
-By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
+You can hide the arrow icon by passing `showArrow=false` to the panel.
 </docs>
 
 <script setup lang="ts">
@@ -18,18 +18,14 @@ const text = `
 const items = [
   {
     key: '1',
-    label: 'This is panel header 1',
+    label: 'This is panel header with arrow icon',
     content: h('p', text),
   },
   {
     key: '2',
-    label: 'This is panel header 2',
+    label: 'This is panel header with no arrow icon',
     content: h('p', text),
-  },
-  {
-    key: '3',
-    label: 'This is panel header 3',
-    content: h('p', text),
+    showArrow: false,
   },
 ]
 

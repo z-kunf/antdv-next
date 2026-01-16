@@ -1,13 +1,14 @@
 <docs lang="zh-CN">
-可以同时展开多个面板，这个例子默认展开了第一个。
+嵌套折叠面板。
 </docs>
 
 <docs lang="en-US">
-By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
+`Collapse` is nested inside the `Collapse`.
 </docs>
 
 <script setup lang="ts">
 import { h } from 'vue'
+import { Collapse } from 'antdv-next'
 
 const text = `
   A dog is a type of domesticated animal.
@@ -15,11 +16,19 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `
 
+const itemsNest = [
+  {
+    key: '1',
+    label: 'This is panel nest panel',
+    content: h('p', text),
+  },
+]
+
 const items = [
   {
     key: '1',
     label: 'This is panel header 1',
-    content: h('p', text),
+    content: h(Collapse, { defaultActiveKey: ['1'], items: itemsNest }),
   },
   {
     key: '2',
@@ -39,5 +48,5 @@ function onChange(key: string[]) {
 </script>
 
 <template>
-  <a-collapse :items="items" :default-active-key="['1']" @change="onChange" />
+  <a-collapse :items="items" @change="onChange" />
 </template>

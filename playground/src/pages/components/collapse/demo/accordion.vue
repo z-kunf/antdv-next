@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-可以同时展开多个面板，这个例子默认展开了第一个。
+手风琴模式，始终只有一个面板处在激活状态。
 </docs>
 
 <docs lang="en-US">
-By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
+In accordion mode, only one panel can be expanded at a time.
 </docs>
 
 <script setup lang="ts">
@@ -32,12 +32,8 @@ const items = [
     content: h('p', text),
   },
 ]
-
-function onChange(key: string[]) {
-  console.log(key)
-}
 </script>
 
 <template>
-  <a-collapse :items="items" :default-active-key="['1']" @change="onChange" />
+  <a-collapse accordion :items="items" />
 </template>

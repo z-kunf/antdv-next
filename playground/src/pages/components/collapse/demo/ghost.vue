@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-可以同时展开多个面板，这个例子默认展开了第一个。
+将折叠面板的背景变成透明。
 </docs>
 
 <docs lang="en-US">
-By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
+Making collapse's background transparent.
 </docs>
 
 <script setup lang="ts">
@@ -32,12 +32,8 @@ const items = [
     content: h('p', text),
   },
 ]
-
-function onChange(key: string[]) {
-  console.log(key)
-}
 </script>
 
 <template>
-  <a-collapse :items="items" :default-active-key="['1']" @change="onChange" />
+  <a-collapse :items="items" ghost :default-active-key="['1']" />
 </template>
