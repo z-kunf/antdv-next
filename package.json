@@ -20,6 +20,7 @@
     "@types/jsdom": "catalog:",
     "@types/markdown-it": "catalog:",
     "@types/node": "catalog:",
+    "@v-c/resize-observer": "catalog:",
     "@v-c/trigger": "catalog:",
     "@v-c/util": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
@@ -48,6 +49,7 @@
   "pnpm": {
     "overrides": {
       "@v-c/resize-observer": "catalog:",
+      "@v-c/trigger": "catalog:",
       "@v-c/util": "catalog:",
       "vite": "catalog:"
     },

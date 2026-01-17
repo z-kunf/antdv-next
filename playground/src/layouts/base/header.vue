@@ -129,6 +129,8 @@ const localeValue = computed(() => {
               size="small"
               variant="filled"
               class="min-w-90px"
+              :popup-match-select-width="false"
+              :get-popup-container="(trigger) => trigger.parentNode"
             />
             <SwitchBtn
               key="lang"
