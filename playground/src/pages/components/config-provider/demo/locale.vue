@@ -23,6 +23,8 @@ dayjs.locale('en')
 
 const { token } = theme.useToken()
 
+const localeName = ref<'en-US' | 'zh-CN'>('en-US')
+
 const locale = ref<Locale>(enUS)
 const open = ref(false)
 const tourOpen = ref(false)
@@ -30,8 +32,9 @@ const tourRef1 = shallowRef()
 const tourRef2 = shallowRef()
 const tourRef3 = shallowRef()
 
-watch(locale, (next) => {
-  dayjs.locale(next === zhCN ? 'zh-cn' : 'en')
+watch(localeName, (next) => {
+  dayjs.locale(next === 'zh-CN' ? 'zh-cn' : 'en')
+  locale.value = next === 'zh-CN' ? zhCN : enUS
 })
 
 const columns: TableProps['columns'] = [
@@ -121,11 +124,11 @@ function confirm() {
 <template>
   <div style="margin-bottom: 16px;">
     <span style="margin-inline-end: 16px;">Change locale of components:</span>
-    <a-radio-group v-model:value="locale">
-      <a-radio-button :value="enUS">
+    <a-radio-group v-model:value="localeName">
+      <a-radio-button value="en-US">
         English
       </a-radio-button>
-      <a-radio-button :value="zhCN">
+      <a-radio-button value="zh-CN">
         中文
       </a-radio-button>
     </a-radio-group>
