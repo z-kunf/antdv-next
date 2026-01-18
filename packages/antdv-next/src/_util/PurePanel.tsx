@@ -76,7 +76,7 @@ function genPurePanel(
             ...style,
             margin: 0,
           },
-          open,
+          open: open.value,
           getPopupContainer: () => holderRef.value!,
         }
 

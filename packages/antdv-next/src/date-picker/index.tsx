@@ -7,6 +7,7 @@ import type {
   PickerPropsWithMultiple,
 } from './generatePicker/interface'
 import dayjsGenerateConfig from '@v-c/picker/generate/dayjs'
+import genPurePanel from '../_util/PurePanel.tsx'
 import generatePicker from './generatePicker'
 
 export type { PickerLocale } from './generatePicker'
@@ -37,6 +38,8 @@ const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig)
 
 export type DatePickerType = typeof DatePicker & {
   generatePicker: typeof generatePicker
+  _InternalPanelDoNotUseOrYouWillBeFired: any
+  _InternalRangePanelDoNotUseOrYouWillBeFired: any
 }
 
 ;(DatePicker as DatePickerType).generatePicker = generatePicker
@@ -57,3 +60,10 @@ export const DateWeekPicker = DatePicker.WeekPicker
 export const DateMonthPicker = DatePicker.MonthPicker
 export const DateYearPicker = DatePicker.YearPicker
 export const DateQuarterPicker = DatePicker.QuarterPicker
+
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(DatePicker, 'popupAlign', undefined, 'picker');
+(DatePicker as DatePickerType)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel
+const PureRangePanel = genPurePanel(DatePicker.RangePicker, 'popupAlign', undefined, 'picker');
+(DatePicker as DatePickerType)._InternalRangePanelDoNotUseOrYouWillBeFired = PureRangePanel

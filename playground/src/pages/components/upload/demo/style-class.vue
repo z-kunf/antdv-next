@@ -100,7 +100,7 @@ const handleChange: UploadEmits['change'] = ({ file, fileList }) => {
   </a-flex>
 </template>
 
-<style scoped>
+<style>
 .upload-demo-root {
   border-radius: 6px;
   padding: 12px;

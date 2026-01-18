@@ -13,6 +13,7 @@ import type {
   RangePickerProps,
 } from '../date-picker/generatePicker'
 import { computed, defineComponent, shallowRef } from 'vue'
+import genPurePanel from '../_util/PurePanel.tsx'
 import { toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import DatePicker from '../date-picker'
@@ -343,8 +344,13 @@ const TimePicker = defineComponent<
 
 export type MergedTimePicker = typeof TimePicker & {
   RangePicker: typeof RangePicker
+  _InternalPanelDoNotUseOrYouWillBeFired: any
 }
 
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(TimePicker, 'popupAlign', undefined, 'picker')
+;(TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel
 ;(TimePicker as MergedTimePicker).RangePicker = RangePicker
 
 ;(TimePicker as any).install = (app: App) => {

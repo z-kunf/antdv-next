@@ -3,6 +3,7 @@ import type { PopconfirmProps } from '.'
 import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { ButtonProps } from '../button'
 import type { PopoverSemanticName } from '../popover'
+import { ExclamationCircleFilled } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
 import ActionButton from '../_util/ActionButton'
@@ -49,7 +50,7 @@ export const Overlay = defineComponent<OverlayProps>(
     return () => {
       const {
         prefixCls,
-        icon,
+        icon = <ExclamationCircleFilled />,
         title,
         description,
         cancelText,

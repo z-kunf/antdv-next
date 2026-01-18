@@ -85,8 +85,8 @@ type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>
 type BeforeUploadValueType = void | boolean | string | Blob | File
 
 export type SemanticName = 'root' | 'list' | 'item'
-export type UploadClassNamesType<T = any> = SemanticClassNamesType<UploadProps<T>, SemanticName>
-export type UploadStylesType<T = any> = SemanticStylesType<UploadProps<T>, SemanticName>
+export type UploadClassNamesType = SemanticClassNamesType<UploadProps, SemanticName>
+export type UploadStylesType = SemanticStylesType<UploadProps, SemanticName>
 export interface UploadProps<T = any> {
   type?: UploadType
   name?: string
@@ -107,8 +107,8 @@ export interface UploadProps<T = any> {
     fileList: VcFile[],
   ) => BeforeUploadValueType | Promise<BeforeUploadValueType>
   listType?: UploadListType
-  classes?: UploadClassNamesType<T>
-  styles?: UploadStylesType<T>
+  classes?: UploadClassNamesType
+  styles?: UploadStylesType
   rootClass?: string
   supportServerRender?: boolean
   disabled?: boolean
@@ -179,8 +179,8 @@ export interface UploadState<T = any> {
 }
 
 export interface UploadListProps<T = any> {
-  classes?: UploadClassNamesType<T>
-  styles?: UploadStylesType<T>
+  classes?: UploadClassNamesType
+  styles?: UploadStylesType
   listType?: UploadListType
   items?: Array<UploadFile<T>>
   progress?: UploadListProgressProps

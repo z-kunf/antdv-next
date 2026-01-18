@@ -108,15 +108,17 @@ export const RawPurePanel = defineComponent<RawPurePanelProps>(
 )
 
 const PurePanel = defineComponent<PurePanelProps>(
-  (props, { attrs }) => {
+  (props, { attrs, slots }) => {
     const { prefixCls } = useComponentBaseConfig('popover', props)
     const [hashId, cssVarCls] = useStyle(prefixCls)
 
     return () => {
+      const content = getSlotPropsFnRun(slots, props, 'content')
       return (
         <RawPurePanel
           {...omit(attrs, ['class'])}
           {...props}
+          content={content}
           prefixCls={prefixCls.value}
           hashId={hashId.value}
           class={clsx((attrs as any).class, cssVarCls.value)}

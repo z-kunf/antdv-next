@@ -17,7 +17,7 @@ import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
 import Tooltip from '../tooltip'
 import useMergedArrow from '../tooltip/hooks/useMergedArrow.ts'
-import { Overlay } from './PurePanel.tsx'
+import PurePanel, { Overlay } from './PurePanel.tsx'
 // CSSINJS
 import useStyle from './style'
 
@@ -196,10 +196,13 @@ const InternalPopover = defineComponent<
 
 const Popover = InternalPopover as typeof InternalPopover & {
   install: (app: App) => void
+  _InternalPanelDoNotUseOrYouWillBeFired: any
 }
 
 Popover.install = (app: App) => {
   app.component(Popover.name, Popover)
 }
 
-export default Popover as typeof InternalPopover
+Popover._InternalPanelDoNotUseOrYouWillBeFired = PurePanel
+
+export default Popover

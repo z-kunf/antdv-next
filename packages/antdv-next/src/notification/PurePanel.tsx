@@ -14,7 +14,7 @@ import {
 
 } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable'
-import { toPropsRefs } from '../_util/tools'
+import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import useStyle from './style'
@@ -157,7 +157,7 @@ const omitKeys = [
 
 /** @private Internal Component. Do not use in your production. */
 const PurePanel = defineComponent<PurePanelProps>(
-  (props, { attrs }) => {
+  (props, { attrs, slots }) => {
     const { classes: notificationClassNames, styles } = toPropsRefs(props, 'classes', 'styles')
     const {
       getPrefixCls,
@@ -212,6 +212,7 @@ const PurePanel = defineComponent<PurePanelProps>(
       const notificationClassName = (attrs as any).class
       const style = (attrs as any).style
       const restProps = omit(props, omitKeys)
+      const actions = getSlotPropsFnRun(slots, props, 'actions')
       return (
         <div
           class={clsx(
@@ -246,7 +247,7 @@ const PurePanel = defineComponent<PurePanelProps>(
                 type={props.type}
                 title={props.title}
                 description={props.description}
-                actions={props.actions}
+                actions={actions}
               />
             )}
           >
