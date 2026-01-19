@@ -108,6 +108,9 @@ export interface FormInstance {
   validate: () => Promise<Record<string, any>>
   submit: () => void
   nativeElement: HTMLFormElement | undefined
+  scrollToField: (fieldName: NamePath, options?: ScrollFocusOptions | boolean) => void
+  focusField: (fieldName: NamePath) => void
+  getFieldInstance: (name: NamePath) => any
 }
 const defaults = {
   layout: 'horizontal',
@@ -511,6 +514,11 @@ const InternalForm = defineComponent<
       handleSubmit(syntheticEvent as any)
     }
 
+    useFormContextProvider(formContextValue)
+    useVariantContextProvider(variant)
+    useDisabledContextProvider(disabled)
+    useSizeProvider(mergedSize)
+
     expose({
       getFieldValue: (name: NamePath) => getFieldValue(getNamePath(name)),
       getFieldsValue,
@@ -530,11 +538,26 @@ const InternalForm = defineComponent<
       validate: () => validateFields(),
       submit,
       nativeElement: nativeElementRef,
+      scrollToField: (name: NamePath, options: ScrollFocusOptions | boolean = {}) => {
+        scrollToField(options, name)
+      },
+      focusField: (name: NamePath) => {
+        const targetId = getFieldId(name, props.name)
+        const node = targetId ? document.getElementById(targetId) : null
+        if (node) {
+          try {
+            node.focus?.()
+          }
+          finally {
+            // ignore focus error
+          }
+        }
+      },
+      getFieldInstance: (name: NamePath) => {
+        const targetId = getFieldId(name, props.name) ?? (typeof name === 'string' || typeof name === 'number') ? `${name}` : name.join('_')
+        return fields.value?.[targetId]
+      },
     })
-    useFormContextProvider(formContextValue)
-    useVariantContextProvider(variant)
-    useDisabledContextProvider(disabled)
-    useSizeProvider(mergedSize)
 
     watch(
       () => rules.value,

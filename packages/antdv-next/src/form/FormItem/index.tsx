@@ -350,12 +350,12 @@ const InternalFormItem = defineComponent<
 
     const rootClassName = computed(() => clsx(cssVarCls.value, rootCls.value, hashId.value, props.rootClass))
 
-    const eventKey = `form-item-${fieldId.value || namePath.value.join('-') || Math.random().toString(36).slice(2)}`
+    const eventKey = computed(() => `form-item-${fieldId.value || namePath.value.join('-') || Math.random().toString(36).slice(2)}`)
     watch(
       hasName,
-      (val) => {
+      (val, _, onCleanup) => {
         if (val && formContext.value?.addField) {
-          formContext.value.addField(eventKey, {
+          formContext.value.addField(eventKey.value, {
             onFieldBlur,
             namePath: () => namePath.value,
             getValue: () => fieldValue.value,
@@ -378,16 +378,19 @@ const InternalFormItem = defineComponent<
               })
             },
           })
+          onCleanup(() => {
+            formContext.value?.removeField?.(eventKey.value)
+          })
         }
         else {
-          formContext.value?.removeField?.(eventKey)
+          formContext.value?.removeField?.(eventKey.value)
         }
       },
       { immediate: true },
     )
 
     onBeforeUnmount(() => {
-      formContext.value?.removeField?.(eventKey)
+      formContext.value?.removeField?.(eventKey.value)
     })
 
     useFormItemProvider({

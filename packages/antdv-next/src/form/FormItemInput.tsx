@@ -79,7 +79,6 @@ const FormItemInput = defineComponent<
       const extra = getSlotPropsFnRun({}, props, 'extra')
       const help = getSlotPropsFnRun({}, props, 'help')
       const children = filterEmpty(slots?.default?.() ?? [])
-      // const {} = f
       const mergedWrapperColFn = () => {
         let mergedWrapper: ColPropsWithClass = { ...(wrapperCol || formContext.value?.wrapperCol || {}) } as ColPropsWithClass
         if (label === null && !labelCol && !wrapperCol && formContext.value?.labelCol) {
@@ -95,8 +94,8 @@ const FormItemInput = defineComponent<
               mergedWrapper = set(mergedWrapper, [..._size, 'offset'], formLabelObj.span)
             }
           })
-          return mergedWrapper
         }
+        return mergedWrapper
       }
       const mergedWrapperCol = mergedWrapperColFn()
 
