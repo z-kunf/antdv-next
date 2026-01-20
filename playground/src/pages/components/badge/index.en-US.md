@@ -4,8 +4,6 @@ title: Badge
 description: Small numerical value or status descriptor for UI elements.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v8EQT7KoGbcAAAAAAAAAAAAADrJ8AQ/original
-demo:
-  cols: 2
 group: Data Display
 ---
 
@@ -13,9 +11,24 @@ group: Data Display
 
 ## When To Use {#when-to-use}
 
+Badge normally appears in proximity to notifications or user avatars with eye-catching appeal, typically displaying unread messages count.
+
 ## Examples {#examples}
 
 <demo-group>
+<demo src="./demo/basic.vue">Basic</demo>
+<demo src="./demo/no-wrapper.vue">Standalone</demo>
+<demo src="./demo/overflow.vue">Overflow Count</demo>
+<demo src="./demo/dot.vue">Red badge</demo>
+<demo src="./demo/change.vue">Dynamic</demo>
+<demo src="./demo/link.vue">Clickable</demo>
+<demo src="./demo/offset.vue">Offset</demo>
+<demo src="./demo/size.vue">Size</demo>
+<demo src="./demo/status.vue">Status</demo>
+<demo src="./demo/colorful.vue">Colorful Badge</demo>
+<demo src="./demo/ribbon.vue">Ribbon</demo>
+<demo src="./demo/style-class.vue" version="6.0.0">Custom semantic dom styling</demo>
+<demo src="./demo/title.vue" debug>Title</demo>
 </demo-group>
 
 ## API

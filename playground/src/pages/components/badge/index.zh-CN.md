@@ -5,8 +5,6 @@ subtitle: 徽标数
 description: 图标右上角的圆形徽标数字。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v8EQT7KoGbcAAAAAAAAAAAAADrJ8AQ/original
-demo:
-  cols: 2
 group: 数据展示
 ---
 
@@ -14,9 +12,24 @@ group: 数据展示
 
 ## 何时使用 {#when-to-use}
 
+一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户注意力。
+
 ## 示例 {#examples}
 
 <demo-group>
+<demo src="./demo/basic.vue">基本</demo>
+<demo src="./demo/no-wrapper.vue">独立使用</demo>
+<demo src="./demo/overflow.vue">封顶数字</demo>
+<demo src="./demo/dot.vue">讨嫌的小红点</demo>
+<demo src="./demo/change.vue">动态</demo>
+<demo src="./demo/link.vue">可点击</demo>
+<demo src="./demo/offset.vue">位置偏移</demo>
+<demo src="./demo/size.vue">大小</demo>
+<demo src="./demo/status.vue">状态点</demo>
+<demo src="./demo/colorful.vue">多彩徽标</demo>
+<demo src="./demo/ribbon.vue">缎带</demo>
+<demo src="./demo/style-class.vue" version="6.0.0">自定义语义结构的样式和类</demo>
+<demo src="./demo/title.vue" debug>自定义标题</demo>
 </demo-group>
 
 ## API
