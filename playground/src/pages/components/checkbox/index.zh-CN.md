@@ -28,15 +28,14 @@ demo:
 
 ## API
 
-### 属性 {#property}
-
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-#### Checkbox
+### Checkbox
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
+#### 属性 {#checkbox-props}
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultChecked | 初始是否选中 | boolean | false | - |
 | checked | 指定当前是否选中 | boolean | false | - |
 | disabled | 失效状态 | boolean | false | - |
 | title | - | string | - | - |
@@ -52,26 +51,11 @@ demo:
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | CheckboxClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | CheckboxStylesType | - | - |
 
-#### CheckboxGroup
-
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| options | - | (CheckboxOptionType \| string \| number)[] | - | - |
-| disabled | 失效状态 | boolean | false | - |
-| name | - | string | - | - |
-| defaultValue | - | any[] | - | - |
-| value | - | any[] | - | - |
-| labelRender | - | (params: &#123; item: CheckboxOptionType, index: number &#125;) =&gt; any | - | - |
-
-### 事件 {#events}
-
-#### Checkbox
+#### 事件 {#checkbox-events}
 
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | change | 变化时的回调函数 | (checked: CheckboxChangeEvent) =&gt; void | - |
-| update:checked | - | (checked: any) =&gt; void | - |
-| update:value | - | (value: any) =&gt; void | - |
 | mouseenter | - | (event: MouseEvent) =&gt; void | - |
 | mouseleave | - | (event: MouseEvent) =&gt; void | - |
 | keypress | - | (event: KeyboardEvent) =&gt; void | - |
@@ -80,16 +64,26 @@ demo:
 | blur | 失去焦点时的回调 | (event: FocusEvent) =&gt; void | - |
 | click | - | (event: MouseEvent) =&gt; void | - |
 
-#### CheckboxGroup
+### CheckboxGroup
+
+#### 属性 {#checkboxgroup-props}
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| options | - | (CheckboxOptionType \| string \| number)[] | - | - |
+| disabled | 失效状态 | boolean | false | - |
+| name | - | string | - | - |
+| defaultValue | - | any[] | - | - |
+| value | - | any[] | - | - |
+| labelRender | - | (params: &#123; item: CheckboxOptionType, index: number &#125;) =&gt; any | - | - |
+
+#### 事件 {#checkboxgroup-events}
 
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| update:value | - | (value: any[]) =&gt; void | - |
 | change | 变化时的回调函数 | (checkedValue: any[]) =&gt; void | - |
 
-### 插槽 {#slots}
-
-#### CheckboxGroup
+#### 插槽 {#checkboxgroup-slots}
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |

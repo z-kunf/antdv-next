@@ -27,15 +27,14 @@ demo:
 
 ## API
 
-### Property {#property}
-
 Common props ref：[Common props](/docs/vue/common-props)
 
-#### Checkbox
+### Checkbox
+
+#### Props {#checkbox-props}
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean | false | - |
 | checked | Specifies whether the checkbox is selected | boolean | false | - |
 | disabled | If disable checkbox | boolean | false | - |
 | title | - | string | - | - |
@@ -51,7 +50,22 @@ Common props ref：[Common props](/docs/vue/common-props)
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | CheckboxClassNamesType | - | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | CheckboxStylesType | - | - |
 
-#### CheckboxGroup
+#### Events {#checkbox-events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| change | The callback function that is triggered when the state changes | (checked: CheckboxChangeEvent) =&gt; void | - |
+| mouseenter | - | (event: MouseEvent) =&gt; void | - |
+| mouseleave | - | (event: MouseEvent) =&gt; void | - |
+| keypress | - | (event: KeyboardEvent) =&gt; void | - |
+| keydown | - | (event: KeyboardEvent) =&gt; void | - |
+| focus | Called when entering the component | (event: FocusEvent) =&gt; void | - |
+| blur | Called when leaving the component | (event: FocusEvent) =&gt; void | - |
+| click | - | (event: MouseEvent) =&gt; void | - |
+
+### CheckboxGroup
+
+#### Props {#checkboxgroup-props}
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -62,33 +76,13 @@ Common props ref：[Common props](/docs/vue/common-props)
 | value | - | any[] | - | - |
 | labelRender | - | (params: &#123; item: CheckboxOptionType, index: number &#125;) =&gt; any | - | - |
 
-### Events {#events}
-
-#### Checkbox
+#### Events {#checkboxgroup-events}
 
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
-| change | The callback function that is triggered when the state changes | (checked: CheckboxChangeEvent) =&gt; void | - |
-| update:checked | - | (checked: any) =&gt; void | - |
-| update:value | - | (value: any) =&gt; void | - |
-| mouseenter | - | (event: MouseEvent) =&gt; void | - |
-| mouseleave | - | (event: MouseEvent) =&gt; void | - |
-| keypress | - | (event: KeyboardEvent) =&gt; void | - |
-| keydown | - | (event: KeyboardEvent) =&gt; void | - |
-| focus | Called when entering the component | (event: FocusEvent) =&gt; void | - |
-| blur | Called when leaving the component | (event: FocusEvent) =&gt; void | - |
-| click | - | (event: MouseEvent) =&gt; void | - |
-
-#### CheckboxGroup
-
-| Event | Description | Type | Version |
-| --- | --- | --- | --- |
-| update:value | - | (value: any[]) =&gt; void | - |
 | change | The callback function that is triggered when the state changes | (checkedValue: any[]) =&gt; void | - |
 
-### Slots {#slots}
-
-#### CheckboxGroup
+#### Slots {#checkboxgroup-slots}
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
