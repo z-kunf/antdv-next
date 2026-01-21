@@ -34,11 +34,9 @@ When a given task is complicated or has a certain sequence in the series of subt
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-### Steps
-
 The whole of the step bar.
 
-#### Props {#steps-props}
+### Props
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -58,18 +56,20 @@ The whole of the step bar.
 | type | Type of steps, can be set to one of the following values: `default` `dot` `inline` `navigation` `panel` | `default` \| `dot` \| `inline` \| `navigation` \| `panel` | `default` | - |
 | variant | Config style variant | `filled` \| `outlined` | `filled` | - |
 
-#### Events {#steps-events}
+### Events
 
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
 | change | Trigger when Step is changed | (current: number) =&gt; void | - |
 
-#### Slots {#steps-slots}
+### Slots
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
 | iconRender | Custom render icon, please use `items.icon` first | (info: &#123; oriNode, index, active, item &#125;) =&gt; VueNode | - |
 | progressDot | Custom progress dot | (iconDot, &#123; index, status, title, content &#125;) =&gt; VueNode | - |
+
+## Types
 
 ### StepItem
 

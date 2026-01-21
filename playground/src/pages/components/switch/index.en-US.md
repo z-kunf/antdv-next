@@ -86,10 +86,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Why not work in Form.Item? {#faq-binding-data}
 
-Form.Item default bind value to `value` property, but Switch value property is `checked`. You can use `valuePropName` to change bind property.
+Form.Item default bind value to `value` property, but Switch value property is `checked`. You can use `v-model:checked` to change bind property.
 
 ```vue
-<a-form-item name="fieldA" value-prop-name="checked">
-  <a-switch />
+<a-form-item name="fieldA">
+  <a-switch v-model:checked="form.fieldA" />
 </a-form-item>
 ```

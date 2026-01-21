@@ -87,10 +87,10 @@ demo:
 
 ### 为什么在 Form.Item 下不能绑定数据？ {#faq-binding-data}
 
-Form.Item 默认绑定值属性到 `value` 上，而 Switch 的值属性为 `checked`。你可以通过 `valuePropName` 来修改绑定的值属性。
+Form.Item 默认绑定值属性到 `value` 上，而 Switch 的值属性为 `checked`。你可以通过 `v-model:checked` 来修改绑定的值属性。
 
 ```vue
-<a-form-item name="fieldA" value-prop-name="checked">
-  <a-switch />
+<a-form-item name="fieldA">
+  <a-switch v-model:checked="form.fieldA" />
 </a-form-item>
 ```
