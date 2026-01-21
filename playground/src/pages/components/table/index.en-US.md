@@ -114,7 +114,7 @@ const columns = [
 
 ## API
 
-### Property {#property}
+### Props
 
 Common props ref：[Common props](/docs/vue/common-props)
 
@@ -137,7 +137,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| SorterTooltipProps | &#123; target: 'full-header' &#125; | 5.16.0 |
 | virtual | Support virtual list | boolean | - | 5.9.0 |
 
-### Events {#events}
+### Events
 
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
@@ -145,7 +145,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | update:expandedRowKeys | - | (keys: readonly Key[]) =&gt; void | - |
 | scroll | Whether the table can be scrollable, [config](#scroll) | NonNullable&lt;VcTableProps['onScroll']&gt; | - |
 
-### Slots {#slots}
+### Slots
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
