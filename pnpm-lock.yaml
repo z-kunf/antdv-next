@@ -40,7 +40,7 @@ catalogs:
       specifier: ^3.0.2
       version: 3.0.2
     '@mdit-vue/shared':
-      specifier: ^3.0.2
+      specifier: 3.0.2
       version: 3.0.2
     '@mdit-vue/types':
       specifier: ^3.0.2
@@ -364,6 +364,9 @@ importers:
         specifier: 'catalog:'
         version: 2.29.8(@types/node@24.10.4)
       '@mdit-vue/plugin-frontmatter':
+        specifier: 'catalog:'
+        version: 3.0.2
+      '@mdit-vue/shared':
         specifier: 'catalog:'
         version: 3.0.2
       '@types/jsdom':

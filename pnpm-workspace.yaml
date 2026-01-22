@@ -14,7 +14,7 @@ catalog:
   '@mdit-vue/plugin-headers': ^3.0.2
   '@mdit-vue/plugin-title': ^3.0.2
   '@mdit-vue/plugin-toc': ^3.0.2
-  '@mdit-vue/shared': ^3.0.2
+  '@mdit-vue/shared': 3.0.2
   '@mdit-vue/types': ^3.0.2
   '@shikijs/markdown-it': ^3.20.0
   '@shikijs/transformers': ^3.20.0
