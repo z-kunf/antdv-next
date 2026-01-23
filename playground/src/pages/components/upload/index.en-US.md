@@ -49,9 +49,11 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 ## API
 
-### Property {#property}
-
 Common props ref：[Common props](/docs/vue/common-props)
+
+
+### Props
+
 
 #### Dragger
 
