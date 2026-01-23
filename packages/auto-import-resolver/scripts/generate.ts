@@ -39,7 +39,7 @@ function generateIcons() {
     return
   }
 
-  const iconFiles = fs.readdirSync(iconDir).filter(s => s !== 'index.ts').map(file => file.replace('.tsx', ''))
+  const iconFiles = fs.readdirSync(iconDir).filter(s => s !== 'index.ts').map(file => file.replace('.tsx', '')).filter(item => item !== 'index')
   fs.writeFileSync(path.join(srcDir, 'icons.ts'), `export default ${JSON.stringify(iconFiles, null, 2)} as string[]\n`)
 }
 
