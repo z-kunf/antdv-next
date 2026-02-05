@@ -259,8 +259,8 @@ function createIndex(targetLocale: Locale) {
 
 async function loadIndexData(targetLocale: Locale) {
   const fileUrl = targetLocale === 'zh-CN'
-    ? new URL('../../assets/search.cn.json', import.meta.url)
-    : new URL('../../assets/search.en.json', import.meta.url)
+    ? '/search.cn.json'
+    : '/search.en.json'
   const response = await fetch(fileUrl)
   if (!response.ok)
     throw new Error(`Failed to load ${targetLocale} search index`)

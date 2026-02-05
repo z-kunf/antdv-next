@@ -46,7 +46,7 @@ interface ParseResult {
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const playgroundRoot = path.resolve(__dirname, '..')
 const pagesRoot = path.resolve(playgroundRoot, 'src/pages')
-const assetsRoot = path.resolve(playgroundRoot, 'src/assets')
+const publicRoot = path.resolve(playgroundRoot, 'public')
 
 const md = new MarkdownIt({
   html: true,
@@ -410,9 +410,9 @@ async function writeIndex(locale: Locale, docs: SearchDoc[]) {
     index,
   }
 
-  await mkdir(assetsRoot, { recursive: true })
+  await mkdir(publicRoot, { recursive: true })
   const fileName = locale === 'en-US' ? 'search.en.json' : 'search.cn.json'
-  const outputPath = path.resolve(assetsRoot, fileName)
+  const outputPath = path.resolve(publicRoot, fileName)
   await writeFile(outputPath, `${JSON.stringify(output, null, 2)}\n`, 'utf8')
   console.log(`[gen-search] Wrote ${docs.length} docs to ${normalizePath(outputPath)}`)
 }
