@@ -4,9 +4,6 @@ title: 组件更新日志
 
 ## V1.0.2
 
-
-### 发布日志
-
 **新功能**
 
 * feat：同步 Ant Design v6.2.3（@aibayanyu20）[#102](https://github.com/antdv-next/antdv-next/pull/102)
