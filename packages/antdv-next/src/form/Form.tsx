@@ -27,6 +27,7 @@ import { useDisabledContext, useDisabledContextProvider } from '../config-provid
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls.ts'
 import { useSize } from '../config-provider/hooks/useSize.ts'
 import { useSizeProvider } from '../config-provider/SizeContext.tsx'
+import useLocale from '../locale/useLocale.ts'
 import { NoFormStyle, useFormContextProvider, useVariantContextProvider } from './context.tsx'
 import useStyle from './style'
 import { getFieldId, toArray } from './util.ts'
@@ -186,6 +187,7 @@ const InternalForm = defineComponent<
     const mergedSize = useSize(size)
     const disabled = computed(() => props?.disabled ?? contextDisabled.value)
     const contextValidateMessages = useValidateMessagesContext()
+    const [formLocale] = useLocale('Form')
 
     const mergedRequiredMark = computed(() => {
       if (props.requiredMark !== undefined) {
@@ -206,6 +208,7 @@ const InternalForm = defineComponent<
     })
     const mergedValidateMessages = computed(() => ({
       ...defaultValidateMessages,
+      ...(formLocale?.value?.defaultValidateMessages || {}),
       ...(contextValidateMessages?.value || {}),
       ...(validateMessages.value || {}),
     }))
