@@ -56,6 +56,7 @@ export type RuleType = 'string'
   | 'url'
   | 'hex'
   | 'email'
+  | 'tel'
 
 type Validator = (
   rule: RuleObject,
@@ -71,6 +72,8 @@ export interface ValidatorRule {
   validator: Validator
 }
 
+export type TriggerType = 'change' | 'blur' | 'focus'
+
 interface BaseRule {
   warningOnly?: boolean
   enum?: StoreValue[]
@@ -83,9 +86,10 @@ interface BaseRule {
   transform?: (value: StoreValue) => StoreValue
   type?: RuleType
   whitespace?: boolean
+  trigger?: TriggerType | TriggerType[]
 
   /** Customize rule level `validateTrigger`. Must be subset of Field `validateTrigger` */
-  validateTrigger?: string | string[]
+  validateTrigger?: TriggerType | TriggerType[]
 }
 
 type AggregationRule = BaseRule & Partial<ValidatorRule>
@@ -348,6 +352,7 @@ export interface ValidateMessages {
     float?: ValidateMessage
     regexp?: ValidateMessage
     email?: ValidateMessage
+    tel?: ValidateMessage
     url?: ValidateMessage
     hex?: ValidateMessage
   }
